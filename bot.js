@@ -47,7 +47,7 @@ client.on('message' , message => {
     var prefix = "+";
     let user = message.mentions.users.first()|| client.users.get(message.content.split(' ')[1])
     if(message.content.startsWith(prefix + 'IDBan')) {
-        if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('❌|**You dont have enough permissions!**');
+        if(!message.member.hasPermission('BAN_MEMBERS')) return message.channel.send('❌|**You dont have enough permissions!**');
         if(!user) return  message.channel.send('Do this ```Example: +IdBan PlayerID Reason```');
         message.guild.ban(user);
         var embed = new Discord.RichEmbed()
@@ -601,6 +601,7 @@ __(Staff Commands)__
 ❖ +clear :octagonal_sign:➾ Clear Chat
 ❖ +kick  :outbox_tray: ➾ Kick members
 ❖ +ban :no_entry: ➾ Ban members
+❖ +IDBan :no_entry: ➾ Ban members using there ID
 ❖ +warn  :warning: ➾ Warn members
 ❖ +mute  :neutral_face: ➾ Mute members
 ❖ +unmute  :smiley: ➾ Unmute members
@@ -794,7 +795,6 @@ client.on('message', message => {
 
     }
   });
-//say
 //say
 client.on('message', message => {
   var prefix = "+"
