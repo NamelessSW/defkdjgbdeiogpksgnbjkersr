@@ -1198,7 +1198,7 @@ client.on('message', message => {
         embed.addField("**【✭ Nameless Bot ✭】**", `**Reason for hacking**`)
         return message.channel.send({embed});
     }
-    embed.addField("**【✭ Nameless Bot ✭】**", `**Done ${user.tag}! got hacked**`)
+    embed.addField("**【✭ Nameless Bot ✭】**", `**Done ${user.tag}! got hacked :arrow_right: Hack type: __${reason}__**`)
         .setFooter(`Nameless`);
     message.channel.send({embed});
     const embed1 = new Discord.RichEmbed()
@@ -1206,7 +1206,7 @@ client.on('message', message => {
         .setTimestamp()
         .addField("**【✭ Nameless Bot ✭】**", `**You got hacked**`)
         .addField("**Reason for hacking**", `**${reason}**`)
-        .setFooter(`**Hack type: is Unknown**`);
+        .setFooter(`**Hack type: is ${reason}**`);
     user.send({embed: embed1});
 }
 });
@@ -1234,7 +1234,7 @@ let Embed = new Discord.RichEmbed()
     }
 
     if (args[0].length <= 1) {
-        Embed.setFooter(`Incorrect usage: sh < 1+ characterSeach >`);
+        Embed.setFooter(`Example: +sh Name`);
         return message.channel.send(Embed); 
     }
     let array = []; 
@@ -1542,6 +1542,18 @@ if (message.content.toLowerCase().startsWith(prefix + `close`)) {
     });
 }
 
+});
+//bot servers
+   client.on('message', message => {
+     var prefix = "+"
+       if (message.content.startsWith(prefix + 'botserver')) {
+     let msg =  client.guilds.map(guild => `**-༺${guild.name}༻ :satellite: ,Server :id:: ${guild.id} ,Number of members: :arrow_right: __${guild.memberCount}__**`).join('\n');
+  let embed = new Discord.RichEmbed()
+  .setTitle(`Nameless Bot is ON ${client.guilds.size} Servers`)
+  .setDescription(`${msg}`)
+  .setColor("#ebf442");
+  message.channel.send(embed);
+}
 });
 
 client.login(process.env.BOT_TOKEN);
