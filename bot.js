@@ -46,7 +46,7 @@ client.on('message', msg => {
 client.on('message' , message => {
     var prefix = "+";
     let user = message.mentions.users.first()|| client.users.get(message.content.split(' ')[1])
-    if(message.content.startsWith(prefix + 'IdBan')) {
+    if(message.content.startsWith(prefix + 'IDBan')) {
         if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('❌|**You dont have enough permissions!**');
         if(!user) return  message.channel.send('Do this ```Example: +IdBan PlayerID Reason```');
         message.guild.ban(user);
