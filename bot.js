@@ -42,6 +42,24 @@ client.on('message', msg => {
       }
     }
 });
+//ID ban
+client.on('message' , message => {
+    var prefix = "+";
+    let user = message.mentions.users.first()|| client.users.get(message.content.split(' ')[1])
+    if(message.content.startsWith(prefix + 'IdBan')) {
+        if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('❌|**You dont have enough permissions!**');
+        if(!user) return  message.channel.send(`Do this ${prefix} <@ID user> \n or \n ${prefix}ban ID user`);
+        message.guild.ban(user);
+        var embed = new Discord.RichEmbed()
+        .setThumbnail(message.author.avatarURl)
+        .setColor("RANDOM")
+        .setTitle('**●ban** !')
+        .addField('**●User ban :** ', `${user}` , true)
+        .addField('**●By :**' ,       ` <@${message.author.id}> ` , true)
+        .setAuthor(message.guild.name)
+        message.channel.sendEmbed(embed)
+    }
+});
 
 //ban
 client.on("message", function(message) {
