@@ -1543,5 +1543,17 @@ if (message.content.toLowerCase().startsWith(prefix + `close`)) {
 }
 
 });
+//bot server
+   client.on('message', message => {
+     var prefix = "+"
+       if (message.content.startsWith(prefix + 'botserver')) {
+     let msg =  client.guilds.map(guild => `**-༺${guild.name}༻ :satellite: ,Server :id:: ${guild.id} ,Number of members: :arrow_right: __${guild.memberCount}__**`).join('\n');
+  let embed = new Discord.RichEmbed()
+  .setTitle(`Nameless Bot is ON ${client.guilds.size} Servers`)
+  .setDescription(`${msg}`)
+  .setColor("#ebf442");
+  message.channel.send(embed);
+}
+});
 
 client.login(process.env.BOT_TOKEN);
