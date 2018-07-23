@@ -1543,17 +1543,18 @@ if (message.content.toLowerCase().startsWith(prefix + `close`)) {
 }
 
 });
-//bot server
-   client.on('message', message => {
-     var prefix = "+"
-       if (message.content.startsWith(prefix + 'botserver')) {
-     let msg =  client.guilds.map(guild => `**-༺${guild.name}༻ :satellite: ,Server :id:: ${guild.id} ,Number of members: :arrow_right: __${guild.memberCount}__**`).join('\n');
-  let embed = new Discord.RichEmbed()
-  .setTitle(`Nameless Bot is ON ${client.guilds.size} Servers`)
-  .setDescription(`${msg}`)
-  .setColor("#ebf442");
-  message.channel.send(embed);
-}
-});
+//bot servers
+ client.on('message' , message => {
+   var prefix ="+"
+     if (message.content === prefix + "botservers") {
 
+if(!message.channel.guild) return;
+  if(message.content < 1023) return
+  const Embed11 = new Discord.RichEmbed()
+.setAuthor(client.user.username,client.user.avatarURL)
+.setThumbnail(client.user.avatarURL)
+.setDescription(`***Nameless Bot is ON ${client.guilds.size} Servers \n \n${client.guilds.map(guilds => `- ${guilds.name}`).join('\n')}***`)
+         message.channel.sendEmbed(Embed11)
+    }
+});
 client.login(process.env.BOT_TOKEN);
