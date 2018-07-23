@@ -48,7 +48,7 @@ client.on('message' , message => {
     let user = message.mentions.users.first()|| client.users.get(message.content.split(' ')[1])
     if(message.content.startsWith(prefix + 'IdBan')) {
         if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('❌|**You dont have enough permissions!**');
-        if(!user) return  message.channel.send(`Do this ${prefix} <@ID user> \n or \n ${prefix}ban ID user`);
+        if(!user) return  message.channel.send('Do this ```Example: +IdBan PlayerID Reason```');
         message.guild.ban(user);
         var embed = new Discord.RichEmbed()
         .setThumbnail(message.author.avatarURl)
