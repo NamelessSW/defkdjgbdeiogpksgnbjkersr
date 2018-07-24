@@ -328,24 +328,17 @@ if (msg.content.startsWith(`+report`)) {
 });
 //sug
 client.on('message', msg => { 
-if (msg.content.startsWith(`+sug`)) {
-
-   let args = msg.content.split(" ").slice(1);
-
-  if (!msg.mentions.members.first()) return msg.reply('**You must mention yourself first** ```Example: +sug  @YourName#1547 adding new commands``` ')
-
-  if (!args[1]) return msg.reply(`**Ummm .. Write your suggestion**`)
-
-  if (msg.guild.channels.find('name', '📋-suggestions')) { //channel name
-
-    msg.guild.channels.find('name', '📋-suggestions').send(`
-  ***Done by:***:  : ${msg.member}
-  **Room** : ${msg.channel.name}
-  ***:sparkle: Suggestion***: :arrow_right: **${args.join(" ").split(msg.mentions.members.first()).slice(' ')}**
-  `)
-  }
-}
-});
+    if (msg.content.startsWith(`+sug`)) {
+       let args = msg.content.split(" ").slice(1);
+      if (!args[1]) return msg.reply('Write your suggestion ```Example: +sug adding new commands```')
+      if (msg.guild.channels.find('name', '📋-suggestions')) {
+        msg.guild.channels.find('name', '📋-suggestions').send(`
+      :pushpin: **Done by: ${msg.member}**
+      **:sparkle: Suggestion:** :arrow_right: **${args.join(" ").split(msg.mentions.members.first()).slice(' ')}**
+      `)
+      }
+    }
+    });
 //your bot has been added to new server
 client.on('guildCreate', guild => {
     client.channels.get("467682139975057408").send(`**Nameless Bot joined a new server ✅
