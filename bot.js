@@ -1494,7 +1494,7 @@ const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";
 
 
 client.on('ready', function() {
-	console.log(`Music Ready ${client.user.username}`);
+	console.log(`${client.user.username} Music is ON`);
 });
 
 
