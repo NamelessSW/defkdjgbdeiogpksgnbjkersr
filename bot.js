@@ -1486,7 +1486,7 @@ if(!message.channel.guild) return;
 //Music
 const ytdl = require('ytdl-core');
 const request = require('request');
-const ffmpeg = require('ffmpeg-binaries');
+const FFMPEG = require('ffmpeg-binaries');
 const getYoutubeID = require('get-youtube-id');
 const fetchVideoInfo = require('youtube-info');
 
