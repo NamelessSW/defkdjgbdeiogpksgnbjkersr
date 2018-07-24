@@ -1288,6 +1288,9 @@ client.on('guildMemberAdd', (member) => {
     });
 
 //Invite Blocker
+const fs = require("fs");
+const ms = require("ms");
+
 let al = JSON.parse(fs.readFileSync(`./inviteblocker.json`, `utf8`));
 
 
