@@ -1490,7 +1490,7 @@ const request = require('request');
 const getYoutubeID = require('get-youtube-id');
 const fetchVideoInfo = require('youtube-info');
 const FFMPEG = require('FFMPEG');
-const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";//لا تغيره
+const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";
 
 
 client.on('ready', function() {
