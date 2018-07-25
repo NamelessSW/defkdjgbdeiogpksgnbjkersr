@@ -62,57 +62,10 @@ client.on('message' , message => {
 });
 
 //ban
-client.on("message", function(message) {
-    let toBan = message.mentions.users.first();
-    let toReason = message.content.split(" ").slice(2).join(" ");
-    let toEmbed = new Discord.RichEmbed()
-    var prefix = "+"
-   if(message.content.startsWith(prefix + "ban")) {
-       if(!message.member.hasPermission("BAN_MEMBERS")) return message.reply("**You dont have enough permissions!**");
-       if(!toBan) return message.reply("** Mention a user! ```Example: +ban @unknown#1547 spamming```**");
-       if(toBan.id === ("236192758765715456")) return message.reply("**You cannot ban me!**");
-       if(toBan === message.member.guild.owner) return message.reply("**You cannot ban the owner of the server!**");
-       if(toBan.bannable) return message.reply("**#I cannot ban someone with a higher role than me!**");
-       if(!toReason) return message.reply("**Supply a reason!**")
-       if(toBan.id === message.author.id) return message.reply("**You cannot ban yourself!**")
-       if(!message.guild.member(toBan).bannable) return message.reply("**I cannot ban this person!**")
-       let toEmbed;
-       toEmbed = new Discord.RichEmbed()
-       .setTitle("You have been banned from a server!")
-       .setThumbnail(toBan.avatarURL)
-       .addField("**# - Server:**",message.guild.name,true)
-       .addField("**# - Reason:**",toReason,true)
-       .addField("**# - Banned By:**",message.author,true)
-       if(message.member.hasPermission("BAN_MEMBERS")) return (
-           toBan.sendMessage({embed: toEmbed}).then(() => message.guild.member(toBan).ban({reason: toReason})).then(() => message.channel.send(`**Done! I banned: ${toBan}**`))
-       );
-       
-   }
-});
+
 
 //kick
-client.on('message',function(message) {
-    let toKick = message.mentions.users.first();
-    let toReason = message.content.split(" ").slice(2).join(" ");
-    let toEmbed = new Discord.RichEmbed()
-    var prefix = "+"
-   if(message.content.startsWith(prefix + 'kick')) {
-       if(!message.member.hasPermission("KICK_MEMBERS")) return message.reply('**You dont have enough permissions!**');
-       if(!toReason) return message.reply("**Mention a user!  ```Example: +kick @unknown#1547 spamming```**")
-       if(toKick.id === message.author.id) return message.reply("**You cannot kick yourself!**")
-       if(!message.guild.member(toKick).bannable) return message.reply("**I cannot ban this person!**")
-       let toEmbed;
-       toEmbed = new Discord.RichEmbed()
-       .setTitle("You have been kicked from a server!")
-       .setThumbnail(toKick.avatarURL)
-       .addField("**# - Server:**",message.guild.name,true)
-       .addField("**# - Reason:**",toReason,true)
-       .addField("**# - Kicked By:**",message.author,true)
-       if(message.member.hasPermission("KICK_MEMBERS")) return (
-           toKick.sendMessage({embed: toEmbed}).then(() => message.guild.member(toKick).kick()).then(() => message.channel.send(`**Done! I kicked: ${toKick}**`))
-       )
-       }
-});
+
 
 //clear
 client.on('message', msg => {
