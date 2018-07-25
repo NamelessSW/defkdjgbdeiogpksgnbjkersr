@@ -556,6 +556,20 @@ let embed = new Discord.RichEmbed()
 message.channel.sendEmbed(embed);
 }
 });
+//help logs .witherwas here
+client.on('message', message => {
+if (message.content === "+help-setup-logs") { 
+let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.setTitle('**:sparkle: ─══════  {✯Setup Logs :notepad_spiral: ✯} ══════─ :sparkle: **')
+.addField('** How to setup Tickets System?  **',"**Just make a channel name it  ```log```**") 
+.addField('** :pushpin: Important:  **',"**you done Now just let your staff or you See server logs**") 
+.addField("**:red_circle:  Nameless Support Discord :tools:   **","**-https://discord.gg/atk3A2C**") 
+.addField("**:pushpin:  Don't forget to vote for Nameless Bot :heartbeat:**","**-https://discordbots.org/bot/465993722342014986/vote**")
+.setColor('#7d2dbe')
+message.channel.sendEmbed(embed);
+}
+});
 //help Verify
 client.on('message', message => {
 if (message.content === "+help-setup-verify") { 
