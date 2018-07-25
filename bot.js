@@ -227,6 +227,7 @@ client.on('message', message => {
     }
   }
 });
+//move
 client.on('message', message => {
 	const prefix = '+'
 if(!message.channel.guild) return;
@@ -1550,7 +1551,7 @@ client.on("message", async message => {
     //!kick @daeshan askin for it
 
     let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!kUser) return message.channel.send("Can't find user!");
+    if(!kUser) return message.channel.send("**Can't find user!** ```Example: +kick Player Reason```");
     let kReason = args.join(" ").slice(22);
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Soory User bot you dont have enghout permision to use this command");
     if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be kicked!");
@@ -1575,7 +1576,7 @@ client.on("message", async message => {
   if(cmd === `${prefix}ban`){
 
     let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!bUser) return message.channel.send("Can't find user!");
+    if(!bUser) return message.channel.send("**Can't find user!** ```Example: +ban Player Reason```");
     let bReason = args.join(" ").slice(22);
     if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("Soory User bot you dont have enghout permision to use this command");
     if(bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be kicked!");
