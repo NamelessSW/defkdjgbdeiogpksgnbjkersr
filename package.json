@@ -12,8 +12,8 @@
     "dateformat": "^3.0.3",
     "discord.js": "^11.3.2",
     "express": "^4.16.3",
-    "ffmpeg": "0.0.4",
-    "ffmpeg-binaries": "^4.0.0",
+    "ffmpeg": "^0.0.4",
+    "ffmpeg-binaries": "^3.2.2",
     "fs": "0.0.2",
     "get-youtube-id": "^1.0.0",
     "jimp": "^0.2.28",
@@ -35,6 +35,9 @@
     "get-youtube-id": "^1.0.0",
     "ytdl-core": "^0.20.3",
     "superagent": "^3.8.3"
+    "fluent-ffmpeg": "^2.1.2",
+    "ffmpeg-static": "^2.3.0",
+    "@ffmpeg-installer/ffmpeg": "^1.0.15"
   },
   "engines": {
     "node": "8.4.0"
