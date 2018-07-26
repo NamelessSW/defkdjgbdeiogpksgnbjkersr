@@ -1602,4 +1602,21 @@ client.on("message", async message => {
   }
 	});
 
+const superagent = require('superagent');
+
+client.on('message' , async (message) => {
+       if(message.content.startsWith(prefix + "meme")) {
+
+  let{body} = await superagent
+  .get(`https://api-to.get-a.life/meme`);
+
+  let me = new Discord.RichEmbed()
+  .setColor("RANDOM")
+  .setTitle("**Random meme:**")
+  .setImage(body.url);
+
+  message.channel.send(me);
+    }
+    });
+
 client.login(process.env.BOT_TOKEN);
