@@ -35,9 +35,6 @@
     "get-youtube-id": "^1.0.0",
     "ytdl-core": "^0.20.3",
     "superagent": "^3.8.3"
-    "fluent-ffmpeg": "^2.1.2",
-    "ffmpeg-static": "^2.3.0",
-    "@ffmpeg-installer/ffmpeg": "^1.0.15"
   },
   "engines": {
     "node": "8.4.0"
