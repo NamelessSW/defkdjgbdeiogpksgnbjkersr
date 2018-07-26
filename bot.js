@@ -1157,7 +1157,8 @@ Nameless Support Manager:
 Nameless Shop Manager:
 -༺ @BarisE#5634 ༻
 ════════════
-Nameless Partnership Manager:
+Nameless Partnership Manager(s):
+-༺ @BuggyPlayz#0931 ༻
 -༺ @DuChaonan#5939 ༻
 ════════════
 Nameless Supporters:
