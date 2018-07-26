@@ -300,6 +300,13 @@ client.on('guildCreate', guild => {
   Server owner: __${guild.owner}__
   Servers Counter : __${client.guilds.size}__**`)
   });
+//your bot has been removed form thhe server
+client.on('guildDelete', guild => {
+    client.channels.get("472166946981281792").send(`**Nameless Bot left a server ❎
+  Server name: __${guild.name}__
+  Server owner: __${guild.owner}__
+  Servers Counter : __${client.guilds.size}__**`)
+  });
 
  client.on('message' , message => {
    var prefix ="+"
