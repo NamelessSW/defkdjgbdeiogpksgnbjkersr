@@ -1161,11 +1161,11 @@ Nameless Partnership Manager(s):
 -༺ @BuggyPlayz#0931 ༻
 -༺ @DuChaonan#5939 ༻
 ════════════
-Nameless Supporters:
-:one: -@SammyB#0788
-:two: -@Zentreax#8277 
+Nameless Supporter(s):
+:one:-@SammyB#0788
+:two:-@Zentreax#8277 
 ════════════
-Nameless Discord Moderator:
+Nameless Discord Moderator(s):
 :wrench:-@Ashton#0546 
 :wrench:-@XITZJUSTMARWINZX_#5240 
 :wrench:-@Chuckles#7837 
