@@ -578,6 +578,7 @@ __(Staff Commands)__
 ❖ +unmutechannel  :pencil: ➾ Unmute channels
 ❖ +mutevoice  :no_mouth: ➾ Mute members (Voice)
 ❖ +unmutevoice  :smile: ➾ Unmute members (Voice)
+❖ +voicekick :airplane_small:  ➾ Voice kick members (Voice)
 ❖ +move  :airplane: ➾ Move members to your Voice channel (Voice)
 ❖ +inviteblocker  :no_entry:  ➾ Enable/Disable Discord Invite Blocker
 ════════════
@@ -1033,6 +1034,7 @@ client.on("message", message => {
          :globe_with_meridians: General commands
 ╚[❖════════════❖]╝
 ❖ +ping :stopwatch:➾ Check your connection speed
+❖ +meme :joy: ➾ Shows random meme
 ❖ +avatar  :camping: ➾ Shows your avatar or other players/members avatar
 ❖ +ser-av  :tent:  ➾ Shows your server avatar
 ❖ +bot :floppy_disk: ➾ Shows how many server and members there
@@ -1045,6 +1047,7 @@ client.on("message", message => {
 ❖ +emojilist :zap:  ➾ Shows your server emojis
 ❖ +flip  :arrows_clockwise: ➾ Flip your word
 ❖ +calculate :thinking: ➾ calculate
+❖ +invites :sparkles: ➾ Shows how many invites you got
 ❖ +tag :pen_ballpoint: ➾ put your name or any other name
 ❖ +uptime  :timer: ➾ Bot uptime
 ❖ +day :cloud: ➾ Shows the date and the time 
@@ -1608,7 +1611,7 @@ client.on("message", async message => {
     return;
   }
 	});
-
+//memes
 const superagent = require('superagent');
 
 client.on('message' , async (message) => {
@@ -1625,5 +1628,37 @@ client.on('message' , async (message) => {
   message.channel.send(me);
     }
     });
+//voice kick
+client.on("message", message => {
+    var prefix = "+";
+    const command = message.content.split(" ")[0];
+
+    if(command == prefix+"voicekick"){
+
+        if (!message.guild.member(message.author).hasPermission('MOVE_MEMBERS') || !message.guild.member(message.author).hasPermission('ADMINISTRATOR')) {
+            return message.reply('**you do not have permission**');
+        }
+
+        var member = message.guild.members.get(message.mentions.users.array()[0].id);
+        if(!message.mentions.users){
+            message.reply("**please mention the member ```Example: +kick @unknown#1547```")
+            return;
+        }
+
+    if(!member.voiceChannel){
+    message.reply("**I can't find this player in any Voice Channel**")
+    return;
+    }
+              message.guild.createChannel('voicekick', 'voice').then(c => {
+                member.setVoiceChannel(c).then(() => {
+                    c.delete(305).catch(console.log)
+        
+
+
+    
+      });
+     });
+    }
+});
 
 client.login(process.env.BOT_TOKEN);
