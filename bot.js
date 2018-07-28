@@ -575,7 +575,7 @@ __(Staff Commands)__
 ❖ +mute  :neutral_face: ➾ Mute members
 ❖ +unmute  :smiley: ➾ Unmute members
 ❖ +mutechannel  :notepad_spiral: ➾ Mute channels
-❖ +unmutechannel  :pencil: ➾ Unmute channels
+❖ +unmutechannel  :pencil: ➾ Unmute channels 
 ❖ +mutevoice  :no_mouth: ➾ Mute members (Voice)
 ❖ +unmutevoice  :smile: ➾ Unmute members (Voice)
 ❖ +voicekick :airplane_small:  ➾ Voice kick members (Voice)
@@ -609,11 +609,14 @@ client.on("message", message => {
     :musical_note: Music Commands :musical_note:
 ╚[❖════════════❖]╝
 __(Coming Soon)__
-❖ +play :musical_note:➾ Plays stated youtube URL
-❖ +stop  :musical_keyboard: ➾ Stops music playing
-❖ +pause :musical_score: ➾ Pauses current music
+❖ +join :musical_score: ➾ Summons the bot to your voice channel
+❖ +play :musical_note:➾ Plays stated youtube URL or video name
+❖ +stop  :musical_keyboard: ➾ Stops current music
 ❖ +resume  :recycle: ➾ Resumes current song
 ❖ +skip  :left_right_arrow: ➾ Skip the song
+❖ +vol  :speaker:  ➾ Check or change the current volume
+❖ +disconnect  :leftwards_arrow_with_hook:  ➾ Disconnect the bot from the voice channel it is in
+
 ════════════
 :red_circle: Nameless Support Discord :tools: ➾ https://discord.gg/atk3A2C
 :pushpin:  Don't forget to vote for Nameless Bot :heartbeat: ➾ https://discordbots.org/bot/465993722342014986/vote
@@ -1861,7 +1864,7 @@ client.on('message', function(message) {
 		dispatcher.setVolume(1 * args / 50);
 		message.channel.sendMessage(`Volume Updated To: **${dispatcher.volume*50}**`);
 	}
-	else if (mess.startsWith('+pause')) {
+	else if (mess.startsWith('+stop')) {
 		if (!message.member.voiceChannel) return message.reply('**Please connect to a voice channel**');
 		message.reply(':gear: **Paused the Song**').then(() => {
 			dispatcher.pause();
@@ -1873,7 +1876,7 @@ client.on('message', function(message) {
 			dispatcher.resume();
 		});
 	}
-	else if (mess.startsWith('+stop')) {
+	else if (mess.startsWith('+disconnect')) {
 		if (!message.member.voiceChannel) return message.reply('**Please connect to a voice channel**');
 		message.reply(':name_badge: **Song Stopped**');
 		var server = server = servers[message.guild.id];
