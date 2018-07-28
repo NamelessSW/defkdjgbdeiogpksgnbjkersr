@@ -1160,7 +1160,7 @@ client.on("message", message => {
          .setDescription(`
 **
 ⫷༺Nameless Bot Staff༺⫸
-Nameless Head Developers👑:
+Nameless Head Developer(s)👑:
 -【✭ @_xShaDowZx#1920 ✭】 
 -【✭ @Witherr#1360 ✭】
 ════════════
