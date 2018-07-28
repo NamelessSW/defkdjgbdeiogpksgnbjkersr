@@ -20,7 +20,7 @@ client.on('ready',() =>{
 
 setInterval(function(){
 
-client.user.setActivity(` ON ${client.guilds.size} Servers - +help`,"+")
+client.user.setActivity(` ON ${client.guilds.size} Server(s) -> +help`,"+")
 
 },10000)
 
