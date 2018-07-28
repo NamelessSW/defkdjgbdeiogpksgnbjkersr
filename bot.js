@@ -1724,11 +1724,4 @@ client.on("message", message => {
       //})
       //});
 
-client.on('ready', () => {
-    setInterval(() => {
-        dbl.postStats(client.guilds.size, client.shards.Id, client.shards.total);
-    }, 1800000);
-});
-
-
 client.login(process.env.BOT_TOKEN);
