@@ -1724,4 +1724,17 @@ client.on("message", message => {
       //})
       //});
 
+//Server counts 
+const DBL = require("dblapi.js");
+const dbl = new DBL(process.env.API_KEY, client);
+
+// Optional events
+dbl.on('posted', () => {
+  console.log('Server count posted!');
+})
+
+dbl.on('error', e => {
+ console.log(`Oops! ${e}`);
+})
+
 client.login(process.env.BOT_TOKEN);
