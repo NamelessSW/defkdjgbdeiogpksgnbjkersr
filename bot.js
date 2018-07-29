@@ -2070,6 +2070,51 @@ client.on("message", message => {
   if (message.content === "+rps") message.channel.send(rpsembed);
 }); 
 
-
+//Voice count
+let rebel;
+client.on("ready", async  => {
+    let guild = client.guilds.get("467441235334791168"); //Server ID
+  let users = guild.members.map(member => member.user.id);
+  let i;
+  rebel=0;
+for (i=0 ; i < users.length ; i++) {
+ let   check = guild.members.get(users[i]);
+if(!check.voiceChannelID){
+        continue;
+}else{
+  rebel++;
+}
+}
+guild.channels.find('id', '473237660409004062').setName(" Voice Online ->「"+rebel+"」"); //Channel ID
+  client.setInterval(() =>{
+    let d = Date.now()
+  }, 5000);
+});
+client.on('voiceStateUpdate', (oldMember, newMember) => {
+    let guild = client.guilds.get("467441235334791168"); //Server ID
+let newUserChannel = newMember.voiceChannel
+let oldUserChannel = oldMember.voiceChannel
+ if(oldUserChannel === undefined && newUserChannel !== undefined) {
+   rebel++;
+guild.channels.find('id', '473237660409004062').setName(" Voice Online ->「"+rebel+"」"); //Channel ID
+} else if(newUserChannel === undefined){
+  rebel--;
+guild.channels.find('id', '473237660409004062').setName(" Voice Online ->「"+rebel+"」"); //Channel ID
+}
+});
+client.on('message', Codes => {
+  
+  if(Codes.content === "+voice") {
+      Codes.channel.send(" Voice ->「"+rebel+"」");
+}
+});
+//total
+client.on('guildMemberAdd', member => {
+    member.guild.channels.get('473242617933463562').setName(`Total Users: ${member.guild.memberCount}`);
+    let humans = member.guild.memberCount - member.guild.members.filter(m => m.user.bot).size
+    member.guild.channels.get('473242656970113034').setName(`Total Humans: ${humans}`);
+    let bots = member.guild.members.filter(m => m.user.bot).size
+    member.guild.channels.get('473242684706783233').setName(`Total Bots: ${bots}`);
+});
 
 client.login(process.env.BOT_TOKEN);
