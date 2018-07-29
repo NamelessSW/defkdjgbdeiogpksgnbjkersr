@@ -1741,19 +1741,13 @@ dbl.on('error', e => {
 
 //Music
 const db = require('quick.db');
-
 const giphy = require('giphy-api')();    
 const googl = require('goo.gl');  
 const translate = require('google-translate-api');   
-
 const getYoutubeID = require('get-youtube-id'); 
 const moment = require("moment");  
 const { Client, Util } = require('discord.js');  
 const UserBlocked = new Set(); 
- 
-
-
-const figlet = require('figlet');
 const google = require('google-it'); 
 const queue = new Map(); 
 const zalgo = require('zalgolize');   
