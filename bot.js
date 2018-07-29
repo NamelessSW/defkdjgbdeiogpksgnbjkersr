@@ -1751,7 +1751,7 @@ const moment = require("moment");
 const { Client, Util } = require('discord.js');  
 const UserBlocked = new Set(); 
  
-const math = require('math-expression-evaluator'); 
+
 const stripIndents = require('common-tags').stripIndents;
 const figlet = require('figlet');
 const google = require('google-it'); 
