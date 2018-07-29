@@ -1946,7 +1946,7 @@ function play(guild, song) {
 	serverQueue.textChannel.send(`**Started playing:** **${song.title}**`);
 }
 */
-// Roll (Minigame)
+/* Roll (Minigame)
 client.on('message', message => {
     if(message.author.bot) return;
     if(!message.content.startsWith(prefix)) return;
