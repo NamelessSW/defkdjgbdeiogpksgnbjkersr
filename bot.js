@@ -1175,6 +1175,7 @@ Nameless Partnership Manager(s):
 ════════════
 Nameless Supporter(s):
 :one:-@SammyB#0788
+:two:-@Zentreax#8277 
 ════════════
 Nameless Discord Moderator(s):
 :wrench:-@Ashton#0546 
@@ -1827,7 +1828,7 @@ const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
 				}
 			}
 
-			return handleVideo(video, msg, voiceChannel);
+/			return handleVideo(video, msg, voiceChannel);
 		}
 	} else if (command === `skip`) {
 		if (!msg.member.voiceChannel) return msg.channel.send(':x: **Please connect to a voice channel first.**');
