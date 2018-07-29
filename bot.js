@@ -1175,7 +1175,6 @@ Nameless Partnership Manager(s):
 ════════════
 Nameless Supporter(s):
 :one:-@SammyB#0788
-:two:-@Zentreax#8277 
 ════════════
 Nameless Discord Moderator(s):
 :wrench:-@Ashton#0546 
