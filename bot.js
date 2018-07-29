@@ -2069,7 +2069,7 @@ client.on("message", message => {
   if (message.content === "+rps") message.channel.send(rpsembed);
 }); 
 
-//Voice count
+/*Voice count
 let rebel;
 client.on("ready", async  => {
     let guild = client.guilds.get("467441235334791168"); //Server ID
@@ -2107,5 +2107,5 @@ client.on('message', Codes => {
       Codes.channel.send(" Voice ->「"+rebel+"」");
 }
 });
-
+*/
 client.login(process.env.BOT_TOKEN);
