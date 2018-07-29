@@ -1748,7 +1748,7 @@ const getYoutubeID = require('get-youtube-id');
 const moment = require("moment");  
 const { Client, Util } = require('discord.js');  
 const UserBlocked = new Set(); 
-const google = require('google-it'); 
+
 const queue = new Map(); 
 const zalgo = require('zalgolize');   
 const fetchVideoInfo = require('youtube-info');
