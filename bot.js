@@ -1948,5 +1948,128 @@ function play(guild, song) {
 	serverQueue.textChannel.send(`**Started playing:** **${song.title}**`);
 }
 
+// Roll (Minigame)
+client.on('message', message => {
+    if(message.author.bot) return;
+    if(!message.content.startsWith(prefix)) return;
+    
+    let args = message.content.slice(prefix.length).trim().split(' ');
+    let cmd = args.shift().toLowerCase();
+      
+    if (message.content.startsWith(prefix + "roll")) {
+        if (!args[0]) {
+          let rollerror = new Discord.RichEmbed()
+          .setAuthor("Roll")
+           .setDescription('**Please enter if you want to roll <over/under> 50. (Rolls between 0 - 100)**')
+           .setColor(0xFFA500)
+           .setFooter("Nameless Bot")
+          return message.channel.send(rollerror);
+        }
+        var rollx = Math.floor(Math.random() * 101);
+    if (args[0] == "over" || args[0] == "o") {
+        if (rollx > 50) {
+            let rolloverwin = new Discord.RichEmbed()
+            //.setTitle('**ROLL**')
+            .setAuthor("Roll")
+            .setDescription(`**You won, the roll was ${rollx}**`)
+            .setFooter("Nameless Bot")
+            .setColor(0xFFA500)
+            return message.channel.send(rolloverwin);
+        } else {
+            let rolloverloss = new Discord.RichEmbed()
+            //.setTitle('**ROLL**')
+            .setAuthor("Roll")
+            .setDescription(`**You lost, the roll was ${rollx}**`)
+            .setColor(0xFFA500)
+            .setFooter("Nameless Bot")
+            return message.channel.send(rolloverloss);
+        }
+    } else if (args[0] == "under" || args[0] == "u") {
+        if (rollx < 50) {
+            let rollunderwin = new Discord.RichEmbed()
+            //.setTitle('**ROLL**')
+            .setAuthor("Roll")
+            .setDescription(`**You won, the roll was ${rollx}**`)
+            .setFooter("Nameless Bot")
+            .setColor(0xFFA500)
+            return message.channel.send(rollunderwin);
+        } else {
+            let rollunderloss = new Discord.RichEmbed()
+            //.setTitle('**ROLL**')
+            .setAuthor("Roll")
+            .setDescription(`**You lost, the roll was ${rollx}**`)
+            .setColor(0xFFA500)
+            .setFooter("Nameless Bot")
+            return message.channel.send(rollunderloss);
+        }
+    } else {
+        let rollarg = new Discord.RichEmbed()
+        //.setTitle('**ROLL**')
+        .setDescription(`**Please use +roll <over/under>**`)
+        .setColor(0xFFA500)
+        .setFooter("Nameless Bot")
+        return message.channel.send(rollarg);
+    }
+  }
+});
+
+
+//RPS (Minigame)
+client.on("message", message => {
+  
+  let args = message.content.slice(prefix.length).trim().split(' ');
+  
+  let rock2 = ["Paper! I win!", "Scissors! You win!"]
+  let rock1 = Math.floor(Math.random() * rock2.length);
+  
+  let paper2 = ["Rock! You win!", "Scissors! I win!"]
+  let paper1 = Math.floor(Math.random() * paper2.length);
+  
+  let scissors2 = ["Rock! I win!", "Paper! You win!"]
+  let scissors1 = Math.floor(Math.random() * scissors2.length);
+  
+  let rock = new Discord.RichEmbed()
+  .setAuthor("Rock, Paper, Scissors")
+  .setColor(0xFFA500)
+  .addField("You Chose", `${args[1]}`)
+  .addField("I choose", rock2[rock1])
+  .setFooter("Nameless Bot")
+  
+  let paper = new Discord.RichEmbed()
+  .setAuthor("Rock, Paper, Scissors")
+  .setColor(0xFFA500)
+  .addField("You Chose", `${args[1]}`)
+  .addField("I choose", paper2[paper1])
+  .setFooter("Nameless Bot")
+  
+  let scissors = new Discord.RichEmbed()
+  .setAuthor("Rock, Paper, Scissors")
+  .setColor(0xFFA500)
+  .addField("You Chose", `${args[1]}`)
+  .addField("I choose", scissors2[scissors1])
+  .setFooter("Nameless Bot")
+  
+  
+  if (message.content === "+rps rock") message.channel.send(rock)
+  if (message.content === "+rps Rock") message.channel.send(rock)
+  if (message.content === "+rps r") message.channel.send(rock)
+  
+  if (message.content === "+rps paper") message.channel.send(paper)
+  if (message.content === "+rps Paper") message.channel.send(paper)
+  if (message.content === "+rps p") message.channel.send(paper)
+  
+  if (message.content === "+rps scissors") message.channel.send(scissors)
+  if (message.content === "+rps Scissors") message.channel.send(scissors)
+  if (message.content === "+rps s") message.channel.send(scissors)
+  
+  let rpsembed = new Discord.RichEmbed()
+  .setAuthor("Rock, Paper, Scissors")
+  .setColor(0xFFA500)
+  .setDescription("Options: <rock, paper, scissors>")
+  .setFooter("Usage: +rps <r, p, s> | by Zentreaxᴰᵉᵛ")
+  if (message.content === "+rps") message.channel.send(rpsembed);
+}); 
+
+
 
 client.login(process.env.BOT_TOKEN);
