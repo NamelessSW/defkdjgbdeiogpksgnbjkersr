@@ -325,7 +325,7 @@ if(!message.channel.guild) return;
 client.on('message', message => {
   var prefix = "+"
   if (!message.content.startsWith(prefix)) return;
-  const verifed = ["236192758765715456","315848387947790336"]; 
+  const verifed = ["236192758765715456","315848387947790336" ,"238723964434644993"]; 
 if (message.content.startsWith(prefix + 'owner')) {
 if( verifed.some(word => message.author.id.includes(word)) ) {    return message.channel.sendMessage(`**   The owner of the bot is here**` + `✅`)
 } else {
