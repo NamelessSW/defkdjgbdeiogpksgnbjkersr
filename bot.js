@@ -1163,6 +1163,7 @@ client.on("message", message => {
 Nameless Head Developer(s)👑:
 -【✭ @_xShaDowZx#1920 ✭】 
 -【✭ @Witherr#1360 ✭】
+-【✭ @Zentreax#8277  ✭】
 ════════════
 Nameless Support Manager:
 -༺ @_𝕱𝖊𝖆𝖗𝖑𝖊𝖘𝖘#0175 ༻
