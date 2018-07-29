@@ -1752,7 +1752,7 @@ const { Client, Util } = require('discord.js');
 const UserBlocked = new Set(); 
  
 
-const stripIndents = require('common-tags').stripIndents;
+
 const figlet = require('figlet');
 const google = require('google-it'); 
 const queue = new Map(); 
