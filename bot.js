@@ -1759,7 +1759,7 @@ const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
  const pretty = require('pretty-ms') 
 
 //Music
-client.on('message', async msg => { 
+/*client.on('message', async msg => { 
 	if (msg.author.bot) return undefined;
 	if (!msg.content.startsWith(prefix)) return undefined;
 	const args = msg.content.split(' ');
@@ -1947,7 +1947,7 @@ function play(guild, song) {
 
 	serverQueue.textChannel.send(`**Started playing:** **${song.title}**`);
 }
-
+*/
 // Roll (Minigame)
 client.on('message', message => {
     if(message.author.bot) return;
