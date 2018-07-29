@@ -2107,14 +2107,5 @@ client.on('message', Codes => {
       Codes.channel.send(" Voice ->「"+rebel+"」");
 }
 });
-/*total
-client.on('guildMemberAdd', member => {
-    member.guild.channels.get('473242617933463562').setName(`Total Users: ${member.guild.memberCount}`);
-    let humans = member.guild.memberCount - member.guild.members.filter(m => m.user.bot).size
-    member.guild.channels.get('473242656970113034').setName(`Total Humans: ${humans}`);
-    let bots = member.guild.members.filter(m => m.user.bot).size
-    member.guild.channels.get('473242684706783233').setName(`Total Bots: ${bots}`);
-});
-*/
 
 client.login(process.env.BOT_TOKEN);
