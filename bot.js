@@ -973,7 +973,7 @@ client.on('message', message =>
     if(msg == prefix + "INV") {
           let embed = new Discord.RichEmbed ()
           embed.setTitle("** :arrow_right: Invite Nameless Bot to your Discord Server!**")
-          .setURL("https://discordapp.com/api/oauth2/authorize?client_id=465993722342014986&permissions=8&scope=bot");
+          .setURL("https://discordapp.com/api/oauth2/authorize?client_id=465993722342014986&permissions=8&scope=bot")
           message.channel.sendEmbed(embed);
     }
 });
