@@ -2141,6 +2141,20 @@ client.on('message', Codes => {
       Codes.channel.send(" Voice ->「"+rebel+"」");
 }
 });
+//Count
+client.on('guildMemberAdd', member => {
+    const botCount = member.guild.members.filter(m=>m.user.bot).size
+    const memberCount = [member.guild.memberCount] - [botCount]
+    client.channels.get('473608142043873293').setName(`⟫『 Total Users: ${memberCount} 』⟪`);
+    client.channels.get('473608120199807006').setName(`⟫『 Total Bots: ${botCount} 』⟪`);
+});
+
+client.on('guildMemberRemove', member => {
+    const botCount = member.guild.members.filter(m=>m.user.bot).size
+    const memberCount = [member.guild.memberCount] - [botCount]
+    client.channels.get('473608142043873293').setName(`⟫『 Total Users: ${memberCount} 』⟪`);
+    client.channels.get('473608120199807006').setName(`⟫『 Total Bots: ${botCount} 』⟪`);
+});
 
 
 
