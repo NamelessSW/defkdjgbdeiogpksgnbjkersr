@@ -1396,7 +1396,7 @@ client.on('message', message => {
              client.on('message', message => {
 				   // var prefix = "+"
 				   // let msg = message.content.toUpperCase();
-                if(mmessage.content.toLowerCase().startsWith(prefix + "vote")) {
+                if(message.content.toLowerCase().startsWith(prefix + "vote")) {
                     let embed = new Discord.RichEmbed ()
                     embed.setTitle("** :arrow_right: Vote for Nameless Bot!**")
                     .setURL("https://discordbots.org/bot/465993722342014986/vote");
