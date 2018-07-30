@@ -431,7 +431,7 @@ message.channel.sendEmbed(embed);
 //help warn
 client.on('message', message => {
 var msg = message.content.toUpperCase();
-if (msg == prefix + "HELP-SETUP-WARN"") { 
+if (msg == prefix + "HELP-SETUP-WARN") { 
 let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .setTitle('**:sparkle: ─══════  {✯Setup warn :warning:✯} ══════─ :sparkle: **')
