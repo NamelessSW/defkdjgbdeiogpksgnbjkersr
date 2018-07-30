@@ -965,7 +965,7 @@ Number of uses of the link : 100**`)
     }
 });
 //invite my bot to your discord server
-client.on('message', message => 
+client.on('message', message => {
 //var prefix = "+"
 //let msg = message.content.toUpperCase();
     if(message.content.toLowerCase().startsWith(prefix + "inv")) {
