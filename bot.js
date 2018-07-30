@@ -213,7 +213,7 @@ client.on('message', message => {
   client.on('message', message => {
     //var prefix = "+"
   //  let msg = message.content.toUpperCase();
-    if(mmessage.content.toLowerCase().startsWith(prefix + "unmutevoice")) {
+    if(message.content.toLowerCase().startsWith(prefix + "unmutevoice")) {
       if(!message.member.hasPermission("MUTE_MEMBERS")) return message.channel.sendMessage("**You do not have permission to give mute voice**:x: ").then(m => m.delete(5000));
       if(!message.guild.member(client.user).hasPermission("MUTE_MEMBERS")) return message.reply("**I Don't Have `MUTE_MEMBERS` Permission**").then(msg => msg.delete(6000))
        
