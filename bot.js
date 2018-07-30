@@ -2158,7 +2158,7 @@ client.on("message", message => {
 }); 
 */
 
-Voice count
+//Voice count
 let rebel;
 client.on("ready", async  => {
     let guild = client.guilds.get("467441235334791168"); //Server ID
