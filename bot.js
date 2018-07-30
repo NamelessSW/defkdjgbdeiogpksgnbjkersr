@@ -569,7 +569,7 @@ message.channel.sendEmbed(embed);
 });
 //Staff commands 
 client.on("message", message => {
-  var prefix ="+"
+  //var prefix ="+"
   var msg = message.content.toUpperCase();
     if (msg == prefix + "HELP-5") {
      const embed = new Discord.RichEmbed() 
@@ -613,7 +613,7 @@ __(Staff Commands)__
    }); 
 //Music commands 
 client.on("message", message => {
-  var prefix ="+"
+  //var prefix ="+"
   var msg = message.content.toUpperCase();
     if (msg == prefix + "HELP-3") {
      const embed = new Discord.RichEmbed() 
@@ -681,7 +681,7 @@ client.on("message", message => {
 //achieve
 const sql = require("sqlite");
 client.on("message", async message => {
-  var prefix = "+"
+  //var prefix = "+"
   var msg = message.content.toUpperCase();
     if (msg == prefix + "ACHIEVE") {
          var ids = [
@@ -710,7 +710,7 @@ message.channel.send(image)
     }
 });
 client.on('message', message => {
-  var prefix = "+"
+ // var prefix = "+"
   var msg = message.content.toUpperCase();
     if (message.author.id === client.user.id) return;
             if (msg == prefix + "PING") {
@@ -737,7 +737,7 @@ if(!message.channel.guild) return;
 });
 //server
 client.on('message', function(msg) {
-         var prefix = "+"
+       //  var prefix = "+"
 	 var mess = msg.content.toUpperCase();
     if(mess == prefix + "SERVER") {
       let embed = new Discord.RichEmbed()
@@ -759,7 +759,7 @@ client.on('message', function(msg) {
 
 //id
 client.on('message', message => {
-    var prefix = "+"
+   // var prefix = "+"
 var args = message.content.split(" ").slice(1);    
 var msg = message.content.toUpperCase();
 if(msg == prefix + "ID") {
@@ -828,7 +828,7 @@ var msg = message.content.toUpperCase();
   });
 //say
 client.on('message', message => {
-  var prefix = "+"
+  //var prefix = "+"
   var msg = message.content.toUpperCase();
     if (msg == prefix + "SAY") {
       if (!message.member.hasPermission('ADMINISTRATOR')) return message.reply("**This is for management only (Who have __ADMINISTRATOR__ ON can use this command)**");
@@ -851,7 +851,7 @@ var msg = message.content.toUpperCase();
 });
 //MC skins
 client.on("message", message => {
-    var prefix = "+"
+   // var prefix = "+"
     if (!message.content.startsWith(prefix)) return;
       let command = message.content.split(" ")[0];
       command = command.slice(prefix.length);
@@ -865,7 +865,7 @@ client.on("message", message => {
     });
 //Date and time
 client.on('message' , async (message) => {
-    var prefix = "+"
+  //  var prefix = "+"
     var msg = message.content.toUpperCase();
       if (msg == prefix + "DAY") {
   var today = new Date()
@@ -900,7 +900,7 @@ const mapping = {
 
 
 client.on('message' , async (message) => {
-  var prefix = "+"
+  //var prefix = "+"
   var msg = message.content.toUpperCase();
        if(msg == prefix + "WORD") {
           let args = message.content.split(" ").slice(1);
@@ -918,7 +918,7 @@ message.channel.send(
 });
 //flip
 client.on('message' , async (message) => {
-  var prefix = "+"
+  //var prefix = "+"
   var msg = message.content.toUpperCase();
  if (msg == prefix + "FLIP") {
   let args = message.content.split(" ").slice(1);
@@ -966,7 +966,7 @@ Number of uses of the link : 100**`)
 });
 //invite my bot to your discord server
 client.on('message', message => 
-var prefix = "+"
+//var prefix = "+"
 var msg = message.content.toUpperCase();
     if(msg == prefix + "INV" || msg == prefix + "INVITE") {
           let embed = new Discord.RichEmbed ()
@@ -977,7 +977,7 @@ var msg = message.content.toUpperCase();
 });
 //uptime 
 client.on('message', message => {
-    var prefix = "+"
+   // var prefix = "+"
     var msg = message.content.toUpperCase();
 if (msg == prefix + "UPTIME") {
    let uptime = client.uptime;
@@ -1026,7 +1026,7 @@ const math = require('math-expression-evaluator');
 const stripIndents = require('common-tags').stripIndents;
 
 client.on('message', msg => {
-	var prefix = "+"
+	//var prefix = "+"
 	var mess = msg.content.toUpperCase();
  if (mess == prefix + "CALCULATE") {
     let args = msg.content.split(" ").slice(1);
@@ -1050,7 +1050,7 @@ client.on('message', msg => {
 //tag
 const figlet = require('figlet');
 client.on('message', message => {
-  var prefix = "+"
+ // var prefix = "+"
   var msg = message.content.toUpperCase();
 if (msg == prefix + "TAG") {
     let args = message.content.split(" ").slice(1);
@@ -1079,7 +1079,7 @@ client.on("message", message => {
   });
 //Join Support Server
              client.on('message', message => {
-				    var prefix = "+"
+				  //  var prefix = "+"
 				    var msg = message.content.toUpperCase();
                 if(msg == prefix + "SUPPORT") {
                     let embed = new Discord.RichEmbed ()
@@ -1091,7 +1091,7 @@ client.on("message", message => {
 
 //help commands
 client.on("message", message => {
-  var prefix ="+"
+  //var prefix ="+"
   var msg = message.content.toUpperCase();
     if (msg == prefix + "HELP-2") {
      const embed = new Discord.RichEmbed() 
@@ -1150,7 +1150,7 @@ client.on("message", message => {
    }); 
 //fake hack
 client.on('message', message => {
-  var prefix = "+"
+ // var prefix = "+"
   var msg = message.content.toUpperCase();
      if(msg == prefix + "HACK") {
  let args = message.content.split(" ").slice(1);
@@ -1194,7 +1194,7 @@ client.on('message', message => {
 });
 ///search for member
 client.on('message', message => {
-  var prefix = "+"
+ // var prefix = "+"
   var msg = message.content.toUpperCase();
    let args = message.content.split(" ").slice(1);
   if (msg == prefix + "SH") {
@@ -1226,7 +1226,7 @@ let Embed = new Discord.RichEmbed()
 }); 
 //Staff
 client.on("message", message => {
-  var prefix ="+"
+ // var prefix ="+"
   var msg = message.content.toUpperCase();
     if (msg == prefix + "STAFF") {
      const embed = new Discord.RichEmbed() 
@@ -1288,7 +1288,7 @@ client.on('guildMemberAdd', (member) => {
     member.addRole(member.guild.roles.find('name', 'Not Verified'));
     });
     client.on('message', message => {   
-      var prefix = "+"
+     // var prefix = "+"
         if(!message.channel.guild) return;
 	    var msg = message.content.toUpperCase();
            if(msg == prefix + "VERIFY") {
@@ -1319,7 +1319,7 @@ message.channel.sendMessage(`**Press Check to get verified**`).then(msg => {
 //Info
 client.on('message', message => {
 	var msg = message.content.toUpperCase();
-    if (mesg == prefix + "INFO") {
+    if (msg == prefix + "INFO") {
 let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .setTitle('**:sparkle: ─══════ {✯Nameless Bot Info✯} ══════─ :sparkle:**')
@@ -1416,7 +1416,7 @@ client.on('message', message => {
 });
 //emoji list
 client.on('message', message => { 
-let prefix = '+'
+//let prefix = '+'
 var msg = message.content.toUpperCase();
     if (msg == prefix + "EMOJILIST") {
 
@@ -1433,7 +1433,7 @@ var msg = message.content.toUpperCase();
 });
 //Ticket commands 
 client.on("message", message => {
-  var prefix ="+"
+ // var prefix ="+"
   var msg = message.content.toUpperCase();
     if (msg == prefix + "HELP-4") {
      const embed = new Discord.RichEmbed() 
@@ -1528,7 +1528,7 @@ if (message.content.toLowerCase().startsWith(prefix + `close`)) {
 });
 //bot servers
  client.on('message' , message => {
-   var prefix ="+"
+  // var prefix ="+"
    var msg = message.content.toUpperCase();
      if (msg == prefix + "BOTSERVERS") {
 
@@ -1638,7 +1638,7 @@ client.on("message", async message => {
   if(message.author.bot) return;
   if(message.channel.type === "dm") return;
 
-  let prefix = "+" ;
+  //let prefix = "+" ;
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
@@ -1717,7 +1717,7 @@ client.on('message' , async (message) => {
     });
 //voice kick
 client.on("message", message => {
-    var prefix = "+";
+   // var prefix = "+";
     const command = message.content.split(" ")[0];
 
     var msg = message.content.toUpperCase();
