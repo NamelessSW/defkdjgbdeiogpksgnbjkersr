@@ -1978,6 +1978,7 @@ function play(guild, song) {
 	serverQueue.textChannel.send(`**Started playing:** **${song.title}**`);
 }
 */
+ /*
 Roll (Minigame)
 client.on('message', message => {
     if(message.author.bot) return;
@@ -2042,7 +2043,7 @@ client.on('message', message => {
     }
   }
 });
-
+*/
 /*
 //RPS (Minigame)
 client.on("message", message => {
