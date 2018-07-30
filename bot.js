@@ -626,6 +626,37 @@ __(Coming Soon)__
    
    }
    }); 
+
+//help-6
+client.on("message", message => {
+  var msg = message.content.toUpperCase();
+    if (msg == prefix + "HELP-6") {
+     const embed = new Discord.RichEmbed() 
+         .setColor("#580e6b")
+         .setThumbnail(message.author.avatarURL)
+         .setDescription(`
+ **
+╔[❖════════════❖]╗
+              Nameless Bot
+╚[❖════════════❖]╝
+╔[❖════════════❖]╗
+              Prefix = ' + '
+╚[❖════════════❖]╝
+╔[❖════════════❖]╗
+     Game Commands :video_game: 
+╚[❖════════════❖]╝
+❖ +roll :game_die: ➾ Roll over/under 50. Rolls random between 0-100.
+❖ +rps :newspaper: ➾ Rock, Paper, Scissors. (temporarily disabled)
+❖ +coin :money_with_wings: ➾ Flip a Coin. (Coming soon)
+════════════
+:red_circle: Nameless Support Discord :tools: ➾ https://discord.gg/atk3A2C
+:pushpin:  Don't forget to vote for Nameless Bot :heartbeat: ➾ https://discordbots.org/bot/465993722342014986/vote
+════════════
+**`)
+   message.channel.sendEmbed(embed)
+  }
+}); 
+
 //achieve
 const sql = require("sqlite");
 client.on("message", async message => {
@@ -1947,7 +1978,7 @@ function play(guild, song) {
 	serverQueue.textChannel.send(`**Started playing:** **${song.title}**`);
 }
 */
-/* Roll (Minigame)
+Roll (Minigame)
 client.on('message', message => {
     if(message.author.bot) return;
     if(!message.content.startsWith(prefix)) return;
@@ -2012,7 +2043,7 @@ client.on('message', message => {
   }
 });
 
-
+/*
 //RPS (Minigame)
 client.on("message", message => {
   
@@ -2068,6 +2099,7 @@ client.on("message", message => {
   .setFooter("Usage: +rps <r, p, s> | by Zentreaxᴰᵉᵛ")
   if (message.content === "+rps") message.channel.send(rpsembed);
 }); 
+*/
 
 /*Voice count
 let rebel;
