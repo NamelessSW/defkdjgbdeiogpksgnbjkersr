@@ -1530,7 +1530,7 @@ if (message.content.toLowerCase().startsWith(prefix + `close`)) {
  client.on('message' , message => {
   // var prefix ="+"
   // var msg = message.content.toUpperCase();
-     if (mmessage.content.toLowerCase().startsWith(prefix + "botservers")) {
+     if (message.content.toLowerCase().startsWith(prefix + "botservers")) {
 
 if(!message.channel.guild) return;
   if(message.content < 1023) return
