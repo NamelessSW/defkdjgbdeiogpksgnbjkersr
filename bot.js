@@ -970,7 +970,7 @@ Number of uses of the link : 100**`)
 client.on('message', message => 
 //var prefix = "+"
 //let msg = message.content.toUpperCase();
-    if(msg == prefix + "INV" || msg == prefix + "INVITE") {
+    if(msg == prefix + "INV") {
           let embed = new Discord.RichEmbed ()
           embed.setTitle("** :arrow_right: Invite Nameless Bot to your Discord Server!**")
           .setURL("https://discordapp.com/api/oauth2/authorize?client_id=465993722342014986&permissions=8&scope=bot");
