@@ -45,7 +45,6 @@ client.on('message', msg => {
 });
 //ID ban
 client.on('message' , message => {
-    var prefix = "+";
     let user = message.mentions.users.first()|| client.users.get(message.content.split(' ')[1])
     var msg = message.content.toUpperCase();
     if(msg == prefix + "IDBAN") {
@@ -71,7 +70,6 @@ client.on('message' , message => {
 
 //clear
 client.on('message', msg => {
-  var prefix ="+"
   if (msg.author.bot) return;
   if (!msg.content.startsWith(prefix)) return;
   let command = msg.content.split(" ")[0];
@@ -192,7 +190,7 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**You
 });
 //mute voice
 client.on('message', message => {
-  var prefix = "+"
+  //var prefix = "+"
   var msg = message.content.toUpperCase();
       if(msg == prefix + "MUTEVOICE") {
         if(!message.member.hasPermission("MUTE_MEMBERS")) return message.channel.sendMessage("**You do not have permission to give mute voice**:x: ").then(m => m.delete(5000));
@@ -213,7 +211,7 @@ client.on('message', message => {
   });
 //unmute voice
   client.on('message', message => {
-    var prefix = "+"
+    //var prefix = "+"
     var msg = message.content.toUpperCase();
     if(msg == prefix + "UNMUTEVOICE") {
       if(!message.member.hasPermission("MUTE_MEMBERS")) return message.channel.sendMessage("**You do not have permission to give mute voice**:x: ").then(m => m.delete(5000));
@@ -317,7 +315,7 @@ client.on('guildDelete', guild => {
   });
 
  client.on('message' , message => {
-   var prefix ="+"
+  // var prefix ="+"
    var msg = message.content.toUpperCase();
      if (msg == prefix + "BOTSERVERS?") {
 
@@ -332,7 +330,7 @@ if(!message.channel.guild) return;
 });
 //bot owners
 client.on('message', message => {
-  var prefix = "+"
+  //var prefix = "+"
   if (!message.content.startsWith(prefix)) return;
   const verifed = ["236192758765715456","315848387947790336" ,"238723964434644993"]; 
 var msg = message.content.toUpperCase();
