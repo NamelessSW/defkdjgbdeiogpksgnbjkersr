@@ -1,8 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = '+';
-const mess = msg.content.toUpperCase();
-const msg = message.content.toUpperCase();
 
 
  client.on('ready',  () => {
@@ -30,8 +28,8 @@ client.user.setActivity(` ON ${client.guilds.size} Server(s) -> +help`,"+")
 
 //warn 
 client.on('message', msg => { 
-	let mess = msg.content.toUpperCase();
-    if (mess == prefix + "WARN") {
+	//let mess = msg.content.toUpperCase();
+    if (msg.content.toLowerCase().startsWith(prefix + "warn")) {
       if(!msg.member.hasPermission("MUTE_MEMBERS")) return;
        let args = msg.content.split(" ").slice(1);
       if (!msg.mentions.members.first()) return msg.reply('**Mention a user/player ```Example: +warn @unknown#1547 spamming```**')
@@ -49,7 +47,7 @@ client.on('message', msg => {
 client.on('message' , message => {
     let user = message.mentions.users.first()|| client.users.get(message.content.split(' ')[1])
     //let msg = message.content.toUpperCase();
-    if(msg == prefix + "IDBAN") {
+    if(message.content.toLowerCase().startsWith(prefix + "idban")) {
         if(!message.member.hasPermission('BAN_MEMBERS')) return message.channel.send('❌|**You dont have enough permissions!**');
         if(!user) return  message.channel.send('Do this ```Example: +IDBan PlayerID```');
         message.guild.ban(user);
@@ -78,7 +76,7 @@ client.on('message', msg => {
   command = command.slice(prefix.length);
   let args = msg.content.split(" ").slice(1);
   //let mess = msg.content.toUpperCase();
-    if(mess == prefix + "CLEAR") {
+    if(msg.content.toLowerCase().startsWith(prefix + "clear")) {
         const emoji = client.emojis.find("name", "wastebasket")
     let textxt = args.slice(0).join("");
     if(msg.member.hasPermission("MANAGE_MESSAGES")) {
@@ -100,7 +98,7 @@ client.on("message", message => {
   
   let command = message.content.split(" ")[0];
 //  let msg = message.content.toUpperCase();
-  if (msg == prefix + "MUTE") {
+  if (message.content.toLowerCase().startsWith(prefix + "mute")) {
         if (!message.member.hasPermission('MUTE_MEMBERS')) return message.reply("** You dont have permissions **").catch(console.error);
   let user = message.mentions.users.first();
   let modlog = client.channels.find('name', 'mute-log');
@@ -134,7 +132,7 @@ return message.reply("**Done The member got muted .. :white_check_mark:**").catc
   
   let command = message.content.split(" ")[0];
  // let msg = message.content.toUpperCase();
-  if (msg == prefix + "UNMUTE") {
+  if (message.content.toLowerCase().startsWith(prefix + "unmute")) {
         if (!message.member.hasPermission('MUTE_MEMBERS')) return message.reply("** You dont have permissions **").catch(console.error);
   let user = message.mentions.users.first();
   let modlog = client.channels.find('name', 'mute-log');
@@ -165,7 +163,7 @@ return message.reply("**Done Unmuted .. :white_check_mark:**").catch(console.err
 //mutechannel and unmutechannel
 client.on('message', message => {
 //let msg = message.content.toUpperCase();
-    if (msg == prefix + "MUTECHANNEL") {
+    if (message.content.toLowerCase().startsWith(prefix + "mutechannel")) {
                         if(!message.channel.guild) return message.reply(' **This command only for servers**');
 
 if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **You do not have permissions**');
@@ -177,7 +175,7 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **Yo
            });
              }
 //let msg = message.content.toUpperCase();
-if (msg == prefix + "UNMUTECHANNEL") {
+if (message.content.toLowerCase().startsWith(prefix + "unmutechannel")) {
     if(!message.channel.guild) return message.reply(' **This command only for servers**');
 
 if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**You do not have permissions**');
@@ -194,7 +192,7 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**You
 client.on('message', message => {
   //var prefix = "+"
 //  let msg = message.content.toUpperCase();
-      if(msg == prefix + "MUTEVOICE") {
+      if(message.content.toLowerCase().startsWith(prefix + "mutevoice")) {
         if(!message.member.hasPermission("MUTE_MEMBERS")) return message.channel.sendMessage("**You do not have permission to give mute voice**:x: ").then(m => m.delete(5000));
         if(!message.guild.member(client.user).hasPermission("MUTE_MEMBERS")) return message.reply("**I Don't Have `MUTE_MEMBERS` Permission**").then(msg => msg.delete(6000))
          
@@ -215,7 +213,7 @@ client.on('message', message => {
   client.on('message', message => {
     //var prefix = "+"
   //  let msg = message.content.toUpperCase();
-    if(msg == prefix + "UNMUTEVOICE") {
+    if(mmessage.content.toLowerCase().startsWith(prefix + "unmutevoice")) {
       if(!message.member.hasPermission("MUTE_MEMBERS")) return message.channel.sendMessage("**You do not have permission to give mute voice**:x: ").then(m => m.delete(5000));
       if(!message.guild.member(client.user).hasPermission("MUTE_MEMBERS")) return message.reply("**I Don't Have `MUTE_MEMBERS` Permission**").then(msg => msg.delete(6000))
        
@@ -237,7 +235,7 @@ client.on('message', message => {
 	//const prefix = '+'
 if(!message.channel.guild) return;
 //let msg = message.content.toUpperCase();
-if(msg == prefix + "MOVE") {
+if(message.content.toLowerCase().startsWith(prefix + "move")) {
  if (message.member.hasPermission("MOVE_MEMBERS")) {
  if (message.mentions.users.size === 0) {
  return message.reply("**Mention a player to move it to you** ```Example: +move @unknown#1547```")
@@ -268,7 +266,7 @@ message.react("❌")
 //report
 client.on('message', msg => { 
 //let mess = msg.content.toUpperCase();
-if (mess == prefix + "REPORT") {
+if (msg.content.toLowerCase().startsWith(prefix + "report")) {
 
    let args = msg.content.split(" ").slice(1);
 
@@ -290,7 +288,7 @@ if (mess == prefix + "REPORT") {
 //sug
 client.on('message', msg => { 
 //let mess = msg.content.toUpperCase();
-    if (mess == prefix + "SUG") {
+    if (msg.content.toLowerCase().startsWith(prefix + "sug")) {
        let args = msg.content.split(" ").slice(1);
       if (!args[1]) return msg.reply('Write your suggestion ```Example: +sug adding new commands```')
       if (msg.guild.channels.find('name', '📋-suggestions')) {
@@ -319,7 +317,7 @@ client.on('guildDelete', guild => {
  client.on('message' , message => {
   // var prefix ="+"
   // let msg = message.content.toUpperCase();
-     if (msg == prefix + "BOTSERVERS?") {
+     if (message.content.toLowerCase().startsWith(prefix + "botservers?")) {
 
 if(!message.channel.guild) return;
   if(message.content < 1023) return
@@ -336,7 +334,7 @@ client.on('message', message => {
   if (!message.content.startsWith(prefix)) return;
   const verifed = ["236192758765715456","315848387947790336" ,"238723964434644993"]; 
 //let msg = message.content.toUpperCase();
-if (msg == prefix + "OWNER") {
+if (message.content.toLowerCase().startsWith(prefix + "owner")) {
 if( verifed.some(word => message.author.id.includes(word)) ) {    return message.channel.sendMessage(`**   The owner of the bot is here**` + `✅`)
 } else {
    message.reply('**You are not the owner of the bot**' + '❌');   
@@ -386,7 +384,7 @@ client.on('guildMemberAdd', member => {
 //help
 client.on('message', message => {
 //let msg = message.content.toUpperCase();
-   if (msg == prefix + "HELP") {
+   if (message.content.toLowerCase().startsWith(prefix + "help")) {
 let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .setTitle('**:sparkle: ─══════ {✯Choose✯} ══════─ :sparkle:**')
@@ -407,7 +405,7 @@ message.channel.sendEmbed(embed);
 //help-1
 client.on('message', message => {
 //let msg = message.content.toUpperCase();
-if (msg == prefix + "HELP-1") { 
+if (message.content.toLowerCase().startsWith(prefix + "help-1")) { 
   if (!message.member.hasPermission('ADMINISTRATOR')) return message.reply("**This is for management only (Who have __ADMINISTRATOR__ ON can setup the bot)**");
 let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
@@ -431,7 +429,7 @@ message.channel.sendEmbed(embed);
 //help warn
 client.on('message', message => {
 //let msg = message.content.toUpperCase();
-if (msg == prefix + "HELP-SETUP-WARN") { 
+if (mmessage.content.toLowerCase().startsWith(prefix + "help-setup-warn")) { 
 let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .setTitle('**:sparkle: ─══════  {✯Setup warn :warning:✯} ══════─ :sparkle: **')
@@ -447,11 +445,11 @@ message.channel.sendEmbed(embed);
 //help report
 client.on('message', message => {
 //var msg = message.content.toUpperCase();
-if (msg == prefix + "HELP-SETUP-REPORT") { 
+if (message.content.toLowerCase().startsWith(prefix + "help-setup-report")) { 
 let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .setTitle('**:sparkle: ─══════  {✯Setup report 📝✯} ══════─ :sparkle: **')
-.addField('** How to setup warn?  **',"**Just Make new channel and name it ```📝-report```**") 
+.addField('** How to setup report?  **',"**Just Make new channel and name it ```📝-report```**") 
 .addField('** :pushpin: Important:  **',"**After you make `📝-report` go to this channel __perms__ then got to `@everyone` and __disable send messages__**")
 .addField('** :ok_hand: The report is going to be like this in `📝-report` channel  **',"**https://imgur.com/vNQALax**") 
 .addField("**:red_circle:  Nameless Support Discord :tools:   **","**-https://discord.gg/atk3A2C**") 
@@ -463,11 +461,11 @@ message.channel.sendEmbed(embed);
 //help suggestions
 client.on('message', message => {
 //let msg = message.content.toUpperCase();
-if (msg == prefix + "HELP-SETUP-SUG") { 
+if (message.content.toLowerCase().startsWith(prefix + "help-setup-sug")) { 
 let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .setTitle('**:sparkle: ─══════  {✯Setup suggestions 📋✯} ══════─ :sparkle: **')
-.addField('** How to setup warn?  **',"**Just Make new channel and name it ```📋-suggestions```**") 
+.addField('** How to setup suggestions?  **',"**Just Make new channel and name it ```📋-suggestions```**") 
 .addField('** :pushpin: Important:  **',"**After you make `📋-suggestions` go to this channel __perms__ then got to `@everyone` __disable send messages__**") 
 .addField('** :ok_hand: The suggestions is going to be like this in `📋-suggestions` channel  **',"**https://imgur.com/PVrgyn8**") 
 .addField("**:red_circle:  Nameless Support Discord :tools:   **","**-https://discord.gg/atk3A2C**") 
@@ -479,11 +477,11 @@ message.channel.sendEmbed(embed);
 //help welcome
 client.on('message', message => {
 //let msg = message.content.toUpperCase();
-if (msg == prefix + "HELP-SETUP-WELCOME") { 
+if (message.content.toLowerCase().startsWith(prefix + "help-setup-welcome")) { 
 let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .setTitle('**:sparkle: ─══════  {✯Setup welcome message 👋✯} ══════─ :sparkle: **')
-.addField('** How to setup warn?  **',"**Just Make new channel and name it ```👋-welcome```**") 
+.addField('** How to setup welcome messages?  **',"**Just Make new channel and name it ```👋-welcome```**") 
 .addField('** :pushpin: Important:  **',"**After you make `👋-welcome` go to this channel __perms__ then got to `@everyone` __disable send messages__**") 
 .addField('** :ok_hand: The welcome message is going to be like this in `👋-welcome` channel  **',"**https://imgur.com/kFf9Mar**")
 .addField("**:red_circle:  Nameless Support Discord :tools:   **","**-https://discord.gg/atk3A2C**")
@@ -495,11 +493,11 @@ message.channel.sendEmbed(embed);
 //help goodbye
 client.on('message', message => {
 //let msg = message.content.toUpperCase();
-if (msg == prefix + "HELP-SETUP-GOODBYE") { 
+if (message.content.toLowerCase().startsWith(prefix + "help-setup-goodbye")) { 
 let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .setTitle('**:sparkle: ─══════  {✯Setup goodbye message  👋✯} ══════─ :sparkle: **')
-.addField('** How to setup warn?  **',"**Just Make new channel and name it ```😢-good-bye```**")
+.addField('** How to setup goodbye messages?  **',"**Just Make new channel and name it ```😢-good-bye```**")
 .addField('** :pushpin: Important:  **',"**After you make `😢-good-bye` go to this channel __perms__ then got to `@everyone` __disable send messages__**") 
 .addField('** :ok_hand: The goodbye message is going to be like this in `😢-good-bye` channel  **',"**https://imgur.com/OA6EJGW**")
 .addField("**:red_circle:  Nameless Support Discord :tools:   **","**-https://discord.gg/atk3A2C**") 
@@ -511,7 +509,7 @@ message.channel.sendEmbed(embed);
 //help Auto Role
 client.on('message', message => {
 //let msg = message.content.toUpperCase();
-if (msg == prefix + "HELP-SETUP-AUTOROLE") { 
+if (message.content.toLowerCase().startsWith(prefix + "help-setup-autorole")) { 
 let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .setTitle('**:sparkle: ─══════  {✯Setup Auto Role :asterisk: ✯} ══════─ :sparkle: **')
@@ -526,7 +524,7 @@ message.channel.sendEmbed(embed);
 //help Tickets
 client.on('message', message => {
 //let msg = message.content.toUpperCase();
-if (msg == prefix + "HELP-SETUP-TICKETS") { 
+if (message.content.toLowerCase().startsWith(prefix + "help-setup-tickets")) { 
 let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .setTitle('**:sparkle: ─══════  {✯Setup Tickets System :notepad_spiral: ✯} ══════─ :sparkle: **')
@@ -541,7 +539,7 @@ message.channel.sendEmbed(embed);
 //help logs .witherwas here
 client.on('message', message => {
 //let msg = message.content.toUpperCase();
-if (msg == prefix + "HELP-SETUP-LOGS") { 
+if (message.content.toLowerCase().startsWith(prefix + "help-setup-logs")) { 
 let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .setTitle('**:sparkle: ─══════  {✯Setup Logs :notepad_spiral: ✯} ══════─ :sparkle: **')
@@ -556,7 +554,7 @@ message.channel.sendEmbed(embed);
 //help Verify
 client.on('message', message => {
 //let msg = message.content.toUpperCase();
-if (msg == prefix + "HELP-SETUP-VERIFY") { 
+if (message.content.toLowerCase().startsWith(prefix + "help-setup-verify")) { 
 let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .setTitle('**:sparkle: ─══════  {✯Setup Verify :bust_in_silhouette: ✯} ══════─ :sparkle: **')
@@ -573,7 +571,7 @@ message.channel.sendEmbed(embed);
 client.on("message", message => {
   //var prefix ="+"
   //let msg = message.content.toUpperCase();
-    if (msg == prefix + "HELP-5") {
+    if (message.content.toLowerCase().startsWith(prefix + "help-5")) {
      const embed = new Discord.RichEmbed() 
          .setColor("#580e6b")
          .setThumbnail(message.author.avatarURL)
@@ -617,7 +615,7 @@ __(Staff Commands)__
 client.on("message", message => {
   //var prefix ="+"
  // let msg = message.content.toUpperCase();
-    if (msg == prefix + "HELP-3") {
+    if (message.content.toLowerCase().startsWith(prefix + "help-3")) {
      const embed = new Discord.RichEmbed() 
          .setColor("#580e6b")
          .setThumbnail(message.author.avatarURL)
@@ -653,7 +651,7 @@ __(Coming Soon)__
 //help-6
 client.on("message", message => {
  // let msg = message.content.toUpperCase();
-    if (msg == prefix + "HELP-6") {
+    if (message.content.toLowerCase().startsWith(prefix + "help-6")) {
      const embed = new Discord.RichEmbed() 
          .setColor("#580e6b")
          .setThumbnail(message.author.avatarURL)
@@ -685,7 +683,7 @@ const sql = require("sqlite");
 client.on("message", async message => {
   //var prefix = "+"
  // let msg = message.content.toUpperCase();
-    if (msg == prefix + "ACHIEVE") {
+    if (message.content.toLowerCase().startsWith(prefix + "achieve")) {
          var ids = [
             "20",
             "1",
@@ -715,14 +713,14 @@ client.on('message', message => {
  // var prefix = "+"
   //let msg = message.content.toUpperCase();
     if (message.author.id === client.user.id) return;
-            if (msg == prefix + "PING") {
+            if (message.content.toLowerCase().startsWith(prefix + "ping")) {
         message.channel.sendMessage('**:ping_pong: Pong! In **`' + `${client.ping}` + ' ms`');
     }
 });
 //avatar 
 client.on('message', message => {
 //let msg = message.content.toUpperCase();
-    if (msg == prefix + "AVATAR") {
+    if (message.content.toLowerCase().startsWith(prefix + "avatar")) {
 if(!message.channel.guild) return;
         var mentionned = message.mentions.users.first();
     var client;
@@ -741,7 +739,7 @@ if(!message.channel.guild) return;
 client.on('message', function(msg) {
        //  var prefix = "+"
 	// let mess = msg.content.toUpperCase();
-    if(mess == prefix + "SERVER") {
+    if(msg.content.toLowerCase().startsWith(prefix + "server")) {
       let embed = new Discord.RichEmbed()
       .setColor('RANDOM')
       .setThumbnail(msg.guild.iconURL)
@@ -764,7 +762,7 @@ client.on('message', message => {
    // var prefix = "+"
 var args = message.content.split(" ").slice(1);    
 //let msg = message.content.toUpperCase();
-if(msg == prefix + "ID") {
+if(message.content.toLowerCase().startsWith(prefix + "id")) {
 var year = message.author.createdAt.getFullYear()
 var month = message.author.createdAt.getMonth()
 var day = message.author.createdAt.getDate()
@@ -816,7 +814,7 @@ message.channel.send({embed});
 //member
 client.on('message', message => {
 //let msg = message.content.toUpperCase();
-    if(msg == prefix + "MEMBER") {
+    if(message.content.toLowerCase().startsWith(prefix + "member")) {
     const embed = new Discord.RichEmbed()
     .setDescription(`**Members info
 :green_heart: online:   ${message.guild.members.filter(m=>m.presence.status == 'online').size}
@@ -832,7 +830,7 @@ client.on('message', message => {
 client.on('message', message => {
   //var prefix = "+"
  // let msg = message.content.toUpperCase();
-    if (msg == prefix + "SAY") {
+    if (message.content.toLowerCase().startsWith(prefix + "say")) {
       if (!message.member.hasPermission('ADMINISTRATOR')) return message.reply("**This is for management only (Who have __ADMINISTRATOR__ ON can use this command)**");
         let args = message.content.split(" ").slice(1)
         let text = args.join(' ').replace('$userid', message.author.id).replace('server-name', message.guild.name)
@@ -842,7 +840,7 @@ client.on('message', message => {
 //bot
 client.on('message', message => {
 //let msg = message.content.toUpperCase();
-  if(msg == prefix + "BOT") {
+  if(message.content.toLowerCase().startsWith(prefix + "bot")) {
       const embed = new Discord.RichEmbed()
       .setColor("#00FFFF")
       .setDescription(`**On** **__${client.guilds.size}__ Servers 🌐**
@@ -858,7 +856,7 @@ client.on("message", message => {
       let command = message.content.split(" ")[0];
       command = command.slice(prefix.length);
 	//let msg = message.content.toUpperCase();
-        if(msg == prefix + "MCSKIN") {
+        if(message.content.toLowerCase().startsWith(prefix + "mcskin")) {
                 const args = message.content.split(" ").slice(1).join(" ")
         if (!args) return message.channel.send("** Type your skin name **");
         const image = new Discord.Attachment(`https://minotar.net/armor/body/${args}`, "skin.png");
@@ -869,7 +867,7 @@ client.on("message", message => {
 client.on('message' , async (message) => {
   //  var prefix = "+"
     //let msg = message.content.toUpperCase();
-      if (msg == prefix + "DAY") {
+      if (message.content.toLowerCase().startsWith(prefix + "day")) {
   var today = new Date()
   let Day = today.toString().split(" ")[0].concat("day");
   let Month = today.toString().split(" ")[1]
@@ -904,7 +902,7 @@ const mapping = {
 client.on('message' , async (message) => {
   //var prefix = "+"
  // let msg = message.content.toUpperCase();
-       if(msg == prefix + "WORD") {
+       if(message.content.toLowerCase().startsWith(prefix + "word")) {
           let args = message.content.split(" ").slice(1);
   if (args.length < 1) {
     message.channel.send('You must provide some text to emojify!');
@@ -922,7 +920,7 @@ message.channel.send(
 client.on('message' , async (message) => {
   //var prefix = "+"
  // let msg = message.content.toUpperCase();
- if (msg == prefix + "FLIP") {
+ if (message.content.toLowerCase().startsWith(prefix + "flip")) {
   let args = message.content.split(" ").slice(1);
 if(!args[0]) return message.channel.send('Correct usage: **ks!reverse (text to reverse)**');
 
@@ -949,7 +947,7 @@ if(!args[0]) return message.channel.send('Correct usage: **ks!reverse (text to r
 //Link
 client.on('message', message => {
 //let msg = message.content.toUpperCase();
-    if (msg == prefix + "LINK") {
+    if (message.content.toLowerCase().startsWith(prefix + "link")) {
 
   message.channel.createInvite({
         thing: true,
@@ -970,7 +968,7 @@ Number of uses of the link : 100**`)
 client.on('message', message => 
 //var prefix = "+"
 //let msg = message.content.toUpperCase();
-    if(msg == prefix + "INV") {
+    if(message.content.toLowerCase().startsWith(prefix + "inv")) {
           let embed = new Discord.RichEmbed ()
           embed.setTitle("** :arrow_right: Invite Nameless Bot to your Discord Server!**")
           .setURL("https://discordapp.com/api/oauth2/authorize?client_id=465993722342014986&permissions=8&scope=bot")
@@ -981,7 +979,7 @@ client.on('message', message =>
 client.on('message', message => {
    // var prefix = "+"
    // let msg = message.content.toUpperCase();
-if (msg == prefix + "UPTIME") {
+if (message.content.toLowerCase().startsWith(prefix + "uptime")) {
    let uptime = client.uptime;
 
    let days = 0;
@@ -1030,7 +1028,7 @@ const stripIndents = require('common-tags').stripIndents;
 client.on('message', msg => {
 	//var prefix = "+"
 	//let mess = msg.content.toUpperCase();
- if (mess == prefix + "CALCULATE") {
+ if (msg.content.toLowerCase().startsWith(prefix + "calculate")) {
     let args = msg.content.split(" ").slice(1);
         const question = args.join(' ');
     if (args.length < 1) {
@@ -1054,7 +1052,7 @@ const figlet = require('figlet');
 client.on('message', message => {
  // var prefix = "+"
  // let msg = message.content.toUpperCase();
-if (msg == prefix + "TAG") {
+if (message.content.toLowerCase().startsWith(prefix + "tag")) {
     let args = message.content.split(" ").slice(1);
 if(!args[0]) return message.reply('**Please write the text you want**');  
 
@@ -1068,7 +1066,7 @@ client.on("message", message => {
           if(!message.channel.guild) return;
    if(message.author.bot) return;
 	//let msg = message.content.toUpperCase();
-      if(msg == prefix + "SER-AV"){ 
+      if(message.content.toLowerCase().startsWith(prefix + "ser-av")){ 
           const embed = new Discord.RichEmbed()
   
       .setTitle(`** __${message.guild.name}__ Server Avatar: :arrow_down: **`)
@@ -1083,7 +1081,7 @@ client.on("message", message => {
              client.on('message', message => {
 				  //  var prefix = "+"
 				  //  let msg = message.content.toUpperCase();
-                if(msg == prefix + "SUPPORT") {
+                if(message.content.toLowerCase().startsWith(prefix + "support")) {
                     let embed = new Discord.RichEmbed ()
                     embed.setTitle("** :arrow_right: Join Nameless Support Discord!**")
                     .setURL("https://discord.gg/YnaS8Up");
@@ -1095,7 +1093,7 @@ client.on("message", message => {
 client.on("message", message => {
   //var prefix ="+"
  // let msg = message.content.toUpperCase();
-    if (msg == prefix + "HELP-2") {
+    if (message.content.toLowerCase().startsWith(prefix + "help-2")) {
      const embed = new Discord.RichEmbed() 
          .setColor("#580e6b")
          .setThumbnail(message.author.avatarURL)
@@ -1154,7 +1152,7 @@ client.on("message", message => {
 client.on('message', message => {
  // var prefix = "+"
   //let msg = message.content.toUpperCase();
-     if(msg == prefix + "HACK") {
+     if(message.content.toLowerCase().startsWith(prefix + "hack")) {
  let args = message.content.split(" ").slice(1);
 
     var user = message.mentions.users.first();
@@ -1186,7 +1184,7 @@ client.on('message', message => {
 //Roles
 client.on('message', message => {
 	//let msg = message.content.toUpperCase();
-    if (msg == prefix + "ROLES") {
+    if (message.content.toLowerCase().startsWith(prefix + "roles")) {
         var roles = message.guild.roles.map(roles => `${roles.name}, `).join(' ')
         const embed = new Discord.RichEmbed()
         .setColor('RANDOM')
@@ -1199,7 +1197,7 @@ client.on('message', message => {
  // var prefix = "+"
 //  let msg = message.content.toUpperCase();
    let args = message.content.split(" ").slice(1);
-  if (msg == prefix + "SH") {
+  if (message.content.toLowerCase().startsWith(prefix + "sh")) {
 let Embed = new Discord.RichEmbed()
         .setColor(0x36393e);
     if (!args[0]) {
@@ -1230,7 +1228,7 @@ let Embed = new Discord.RichEmbed()
 client.on("message", message => {
  // var prefix ="+"
  // let msg = message.content.toUpperCase();
-    if (msg == prefix + "STAFF") {
+    if (message.content.toLowerCase().startsWith(prefix + "staff")) {
      const embed = new Discord.RichEmbed() 
          .setColor("#580e6b")
          .setThumbnail(message.author.avatarURL)
@@ -1272,7 +1270,7 @@ Nameless Discord Moderator(s):
 client.on('message', message => {
   const port = '25565'
   //let msg = message.content.toUpperCase();
-  if(msg == prefix + "MCSERVER-STATS") {
+  if(message.content.toLowerCase().startsWith(prefix + "mcserver-stats")) {
  const args = message.content.split(" ").slice(1).join(" ")
     if (!args) return message.channel.send("** Type the server IP ```Example: +mcserver-stats mc.hypixel.net``` **");
         let embed = new Discord.RichEmbed()
@@ -1293,7 +1291,7 @@ client.on('guildMemberAdd', (member) => {
      // var prefix = "+"
         if(!message.channel.guild) return;
 	  //  let msg = message.content.toUpperCase();
-           if(msg == prefix + "VERIFY") {
+           if(message.content.toLowerCase().startsWith(prefix + "verify")) {
             let modlog = client.channels.find('name', 'log');
 message.channel.sendMessage(`**Press Check to get verified**`).then(msg => {
             
@@ -1321,7 +1319,7 @@ message.channel.sendMessage(`**Press Check to get verified**`).then(msg => {
 //Info
 client.on('message', message => {
 	//let msg = message.content.toUpperCase();
-    if (msg == prefix + "INFO") {
+    if (message.content.toLowerCase().startsWith(prefix + "info")) {
 let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .setTitle('**:sparkle: ─══════ {✯Nameless Bot Info✯} ══════─ :sparkle:**')
@@ -1358,7 +1356,7 @@ client.on('message', message => {
         onoff: 'Off'
     }
 	//let msg = message.content.toUpperCase();
-    if (msg == prefix + "GUILDINFO") {
+    if (message.content.toLowerCase().startsWith(prefix + "guildinfo")) {
         let perms = message.member.hasPermission(`ADMINISTRATOR`)
         if (!perms) return message.reply(`**You don't have permissions __ADMINISTRATOR__**`)
         var embed = new Discord.RichEmbed()
@@ -1373,7 +1371,7 @@ client.on('message', message => {
         })
     }
 	//let msg = message.content.toUpperCase();
-    if (msg == prefix + "INVITEBLOCKER") {
+    if (message.content.toLowerCase().startsWith(prefix + "inviteblocker")) {
         let perms = message.member.hasPermission(`ADMINISTRATOR`)
         if (!perms) return message.reply(`**You don't have permissions __ADMINISTRATOR__**`)
         let args = message.content.split(" ").slice(1)
@@ -1398,7 +1396,7 @@ client.on('message', message => {
              client.on('message', message => {
 				   // var prefix = "+"
 				   // let msg = message.content.toUpperCase();
-                if(msg == prefix + "VOTE") {
+                if(mmessage.content.toLowerCase().startsWith(prefix + "vote")) {
                     let embed = new Discord.RichEmbed ()
                     embed.setTitle("** :arrow_right: Vote for Nameless Bot!**")
                     .setURL("https://discordbots.org/bot/465993722342014986/vote");
@@ -1409,7 +1407,7 @@ client.on('message', message => {
              client.on('message', message => {
 				    //var prefix = "+"
 				   // let msg = message.content.toUpperCase();
-                if(msg == prefix + "DONATE") {
+                if(message.content.toLowerCase().startsWith(prefix + "donate")) {
                     let embed = new Discord.RichEmbed ()
                     embed.setTitle("** :arrow_right: Nameless Get Premium!**")
                     .setURL("https://www.patreon.com/NamelessBot");
@@ -1420,7 +1418,7 @@ client.on('message', message => {
 client.on('message', message => { 
 //let prefix = '+'
 //let msg = message.content.toUpperCase();
-    if (msg == prefix + "EMOJILIST") {
+    if (message.content.toLowerCase().startsWith(prefix + "emojilist")) {
 
         const List = message.guild.emojis.map(e => e.toString()).join(" ");
 
@@ -1437,7 +1435,7 @@ client.on('message', message => {
 client.on("message", message => {
  // var prefix ="+"
  // let msg = message.content.toUpperCase();
-    if (msg == prefix + "HELP-4") {
+    if (message.content.toLowerCase().startsWith(prefix + "help-4")) {
      const embed = new Discord.RichEmbed() 
          .setColor("#580e6b")
          .setThumbnail(message.author.avatarURL)
@@ -1532,7 +1530,7 @@ if (message.content.toLowerCase().startsWith(prefix + `close`)) {
  client.on('message' , message => {
   // var prefix ="+"
   // var msg = message.content.toUpperCase();
-     if (msg == prefix + "BOTSERVERS") {
+     if (mmessage.content.toLowerCase().startsWith(prefix + "botservers")) {
 
 if(!message.channel.guild) return;
   if(message.content < 1023) return
@@ -1546,7 +1544,7 @@ if(!message.channel.guild) return;
 //invites
 client.on('message', message => {
 //let msg = message.content.toUpperCase();
-   if(msg == prefix + "INVITES") {
+   if(message.content.toLowerCase().startsWith(prefix + "invites")) {
     message.guild.fetchInvites().then(invs => {
       let user = message.mentions.users.first() || message.author
       let personalInvites = invs.filter(i => i.inviter.id === user.id);
@@ -1645,7 +1643,7 @@ client.on("message", async message => {
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
 //  let msg = message.content.toUpperCase();	
-  if(msg == prefix + "KICK"){
+  if(message.content.toLowerCase().startsWith(prefix + "kick")){
 
     //!kick @daeshan askin for it
 
@@ -1672,7 +1670,7 @@ client.on("message", async message => {
     return;
   }
  // let msg = message.content.toUpperCase();
-  if(msg == prefix + "BAN"){
+  if(message.content.toLowerCase().startsWith(prefix + "ban")){
 
     let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!bUser) return message.channel.send("**Can't find user!** ```Example: +ban Player Reason```");
@@ -1704,7 +1702,7 @@ const superagent = require('superagent');
 
 client.on('message' , async (message) => {
 	//let msg = message.content.toUpperCase();
-       if(msg == prefix + "MEME") {
+       if(message.content.toLowerCase().startsWith(prefix + "meme")) {
 
   let{body} = await superagent
   .get(`https://api-to.get-a.life/meme`);
@@ -1723,7 +1721,7 @@ client.on("message", message => {
     const command = message.content.split(" ")[0];
 
     //let msg = message.content.toUpperCase();
-    if(msg == prefix + "VOICEKICK"){
+    if(message.content.toLowerCase().startsWith(prefix + "votekick")){
 
         if (!message.guild.member(message.author).hasPermission('MOVE_MEMBERS') || !message.guild.member(message.author).hasPermission('ADMINISTRATOR')) {
             return message.reply('**you do not have permission**');
