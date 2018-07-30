@@ -2103,7 +2103,7 @@ client.on("message", message => {
 }); 
 */
 
-//Voice count
+/*Voice count
 let rebel;
 client.on("ready", async  => {
     let guild = client.guilds.get("467441235334791168"); //Server ID
@@ -2155,7 +2155,7 @@ client.on('guildMemberRemove', member => {
     client.channels.get('473608142043873293').setName(`⟫『 Total Users: ${memberCount} 』⟪`);
     client.channels.get('473608120199807006').setName(`⟫『 Total Bots: ${botCount} 』⟪`);
 });
-
+*/
 
 
 
