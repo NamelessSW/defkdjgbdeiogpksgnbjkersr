@@ -2158,9 +2158,6 @@ client.on('guildMemberRemove', member => {
 });
 */
 //anti link 
-let al = JSON.parse(fs.readFileSync(`./linkblocker.json`, `utf8`));
-
-
 client.on('message', message => {
     var sender = message.author
     if (!message.channel.guild) return;
