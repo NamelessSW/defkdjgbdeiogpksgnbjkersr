@@ -32,7 +32,7 @@ client.on('message', msg => {
     if (msg.content.startsWith('+warn')) {
       if(!msg.member.hasPermission("MUTE_MEMBERS")) {
 	      msg.channel.send("**:x: You dont have permissions!**")
-      } else if(verifed.some(word => message.author.id.includes(word))) {
+      } else if(verifed.some(word => msg.author.id.includes(word))) {
 	let args = msg.content.split(" ").slice(1);
       if (!msg.mentions.members.first()) return msg.reply('**Mention a user/player ```Example: +warn @unknown#1547 spamming```**')
       if (!args[1]) return msg.reply('**Reason for warning**')
