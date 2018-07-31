@@ -61,7 +61,20 @@ client.on('message' , message => {
     var prefix = "+";
     let user = message.mentions.users.first()|| client.users.get(message.content.split(' ')[1])
     if(message.content.startsWith(prefix + 'IDBan')) {
-        if(!message.member.hasPermission('BAN_MEMBERS')) return message.channel.send('❌|**You dont have enough permissions!**');
+        if(!message.member.hasPermission('BAN_MEMBERS')) { 
+	message.channel.send('❌|**You dont have enough permissions!**');
+	} else if (verifed.some(word => message.author.id.includes(word))) {
+	if(!user) return  message.channel.send('Do this ```Example: +IDBan PlayerID```');
+        message.guild.ban(user);
+        var embed = new Discord.RichEmbed()
+        .setThumbnail(message.author.avatarURl)
+        .setColor("RANDOM")
+        .setTitle('**●ban** !')
+        .addField('**●User ban :** ', `${user}` , true)
+        .addField('**●By :**' ,       ` <@${message.author.id}> ` , true)
+        .setAuthor(message.guild.name)
+        message.channel.sendEmbed(embed)
+	}
         if(!user) return  message.channel.send('Do this ```Example: +IDBan PlayerID```');
         message.guild.ban(user);
         var embed = new Discord.RichEmbed()
