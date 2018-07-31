@@ -582,6 +582,7 @@ __(Staff Commands)__
 ❖ +voicekick :airplane_small:  ➾ Voice kick members (Voice)
 ❖ +move  :airplane: ➾ Move members to your Voice channel (Voice)
 ❖ +inviteblocker  :no_entry:  ➾ Enable/Disable Discord Invite Blocker
+❖ +anti-link  :no_entry:  ➾ Enable/Disable Link Detection Systéme
 ════════════
 :red_circle: Nameless Support Discord :tools: ➾ https://discord.gg/atk3A2C
 :pushpin:  Don't forget to vote for Nameless Bot :heartbeat: ➾ https://discordbots.org/bot/465993722342014986/vote
@@ -1419,6 +1420,8 @@ var token = " ";
 
 client.on("ready", () => {
   console.log("Nameless Ticket System is ON");
+	console.log("Nameless Anti-Link  System is ON");
+	console.log("Nameless InviteBlocker System is ON");
 });
 
 client.on("message", (message) => {
