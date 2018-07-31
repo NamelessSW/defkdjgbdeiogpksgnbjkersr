@@ -2158,8 +2158,7 @@ client.on('guildMemberRemove', member => {
 });
 */
 //anti link 
-
-let ab = JSON.parse(fs.readFileSync(`./linkblocker.json`, `utf8`));
+let al = JSON.parse(fs.readFileSync(`./linkblocker.json`, `utf8`));
 
 
 client.on('message', message => {
@@ -2167,7 +2166,7 @@ client.on('message', message => {
     if (!message.channel.guild) return;
     if (message.author.bot) return null;
 
-    if (!ab[message.guild.id]) ab[message.guild.id] = {
+    if (!al[message.guild.id]) al[message.guild.id] = {
         onoff: 'Off'
     }
 
@@ -2178,7 +2177,7 @@ client.on('message', message => {
             .setTitle(`${message.guild.name}'s Config`)
 
 
-            .addField(`:no_entry_sign: Anti-Link : `, `Anti-Link State : ${ab[message.guild.id].onoff}`)
+            .addField(`:no_entry_sign: linkblocker : `, `linkblocker State : ${al[message.guild.id].onoff}`)
 
             .setColor(`BLUE`)
         message.channel.send({
@@ -2190,19 +2189,19 @@ client.on('message', message => {
         if (!perms) return message.reply(`**You don't have permissions __ADMINISTRATOR__**`)
         let args = message.content.split(" ").slice(1)
         if (!args.join(" ")) {
-            if (ab[message.guild.id].onoff === 'Off') return [message.channel.send(`**Anti-Link is now ON! :white_check_mark: **`), ab[message.guild.id].onoff = 'On']
-            if (ab[message.guild.id].onoff === 'On') return [message.channel.send(`**Anti-Link is now Off! :no_entry_sign: **`), ab[message.guild.id].onoff = 'Off'] //:D
+            if (al[message.guild.id].onoff === 'Off') return [message.channel.send(`**Anti-link is now ON! :white_check_mark: **`), al[message.guild.id].onoff = 'On']
+            if (al[message.guild.id].onoff === 'On') return [message.channel.send(`**Anti-link is now Off! :no_entry_sign: **`), al[message.guild.id].onoff = 'Off'] //:D
 
         }
     }
-    if (message.content.includes('http:///','com')) {
-        if (ab[message.guild.id].onoff === 'Off') return
+    if (message.content.includes('http://','https://','.com')) {
+        if (al[message.guild.id].onoff === 'Off') return
         if (message.member.hasPermission('ADMINISTRATOR')) return;
         message.delete()
-        return message.reply(`** Discord Invite Links are not allowed here! :anger:  **`)
+        return message.reply(`**Links are not allowed here! :anger:  **`)
     }
    
-    fs.writeFile("./linkblocker.json", JSON.stringify(ab), (err) => {
+    fs.writeFile("./linkblocker.json", JSON.stringify(al), (err) => {
         if (err) console.error(err)
     });
 });
