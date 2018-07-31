@@ -1190,29 +1190,27 @@ client.on("message", message => {
 **
 ⫷༺Nameless Bot Staff༺⫸
 Nameless Head Developer(s)👑:
--【✭ @_xShaDowZx#1920 ✭】 
--【✭ @Witherr#1360 ✭】
--【✭ @Zentreax#8277  ✭】
+-【✭ _xShaDowZx#1920 ✭】 
+-【✭ Witherr#1360 ✭】
+-【✭ Zentreax#8277  ✭】
 ════════════
 Nameless Support Manager:
--༺ @_𝕱𝖊𝖆𝖗𝖑𝖊𝖘𝖘#0175 ༻
+-ExtraW0lf ¯\_(ツ)_/¯#0175
 ════════════
 Nameless Shop Manager:
--༺ @BarisE#5634 ༻
+-༺ BarisE#5634 ༻
 ════════════
 Nameless Partnership Manager(s):
--༺ @BuggyPlayz#0931 ༻
--༺ @DuChaonan#5939 ༻
+-༺ BuggyPlayz#0931 ༻
+-༺ DuChaonan#5939 ༻
 ════════════
 Nameless Supporter(s):
-:one:-@SammyB#0788
-:two:-@Zentreax#8277 
+:one:-SammyB#0788 
 ════════════
 Nameless Discord Moderator(s):
-:wrench:-@Ashton#0546 
-:wrench:-@XITZJUSTMARWINZX_#5240 
-:wrench:-@Chuckles#7837 
-:wrench:-@Cukon#1516 
+:wrench:-Ashton#0546 
+:wrench:-XITZJUSTMARWINZX_#5240 
+:wrench:-Chuckles#7837 
 ════════════
 :red_circle: Nameless Support Discord :tools: ➾ https://discord.gg/atk3A2C
 :pushpin:  Don't forget to vote for Nameless Bot :heartbeat: ➾ https://discordbots.org/bot/465993722342014986/vote
@@ -2156,7 +2154,57 @@ client.on('guildMemberRemove', member => {
     client.channels.get('473608120199807006').setName(`⟫『 Total Bots: ${botCount} 』⟪`);
 });
 */
+//anti link 
+ const fs = require("fs");
+const ms = require("ms");
 
+let al = JSON.parse(fs.readFileSync(`./linkblocker.json`, `utf8`));
+
+
+client.on('message', message => {
+    var sender = message.author
+    if (!message.channel.guild) return;
+    if (message.author.bot) return null;
+
+    if (!al[message.guild.id]) al[message.guild.id] = {
+        onoff: 'Off'
+    }
+
+    if (message.content === prefix + 'guildinfo') {
+        let perms = message.member.hasPermission(`ADMINISTRATOR`)
+        if (!perms) return message.reply(`**You don't have permissions __ADMINISTRATOR__**`)
+        var embed = new Discord.RichEmbed()
+            .setTitle(`${message.guild.name}'s Config`)
+
+
+            .addField(`:no_entry_sign: inviteblocker : `, `inviteblocker State : ${al[message.guild.id].onoff}`)
+
+            .setColor(`BLUE`)
+        message.channel.send({
+            embed
+        })
+    }
+    if (message.content === prefix + 'anti-link') {
+        let perms = message.member.hasPermission(`ADMINISTRATOR`)
+        if (!perms) return message.reply(`**You don't have permissions __ADMINISTRATOR__**`)
+        let args = message.content.split(" ").slice(1)
+        if (!args.join(" ")) {
+            if (al[message.guild.id].onoff === 'Off') return [message.channel.send(`**Invite Blocker is now ON! :white_check_mark: **`), al[message.guild.id].onoff = 'On']
+            if (al[message.guild.id].onoff === 'On') return [message.channel.send(`**Invite Blocker is now Off! :no_entry_sign: **`), al[message.guild.id].onoff = 'Off'] //:D
+
+        }
+    }
+    if (message.content.includes('http:///','com')) {
+        if (al[message.guild.id].onoff === 'Off') return
+        if (message.member.hasPermission('ADMINISTRATOR')) return;
+        message.delete()
+        return message.reply(`** Discord Invite Links are not allowed here! :anger:  **`)
+    }
+   
+    fs.writeFile("./linkblocker.json", JSON.stringify(al), (err) => {
+        if (err) console.error(err)
+    });
+});
 
 
 client.login(process.env.BOT_TOKEN);
