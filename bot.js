@@ -2177,7 +2177,7 @@ client.on('message', message => {
             .setTitle(`${message.guild.name}'s Config`)
 
 
-            .addField(`:no_entry_sign: inviteblocker : `, `inviteblocker State : ${al[message.guild.id].onoff}`)
+            .addField(`:no_entry_sign: Anti-Link : `, `Anti-Link State : ${al[message.guild.id].onoff}`)
 
             .setColor(`BLUE`)
         message.channel.send({
@@ -2189,8 +2189,8 @@ client.on('message', message => {
         if (!perms) return message.reply(`**You don't have permissions __ADMINISTRATOR__**`)
         let args = message.content.split(" ").slice(1)
         if (!args.join(" ")) {
-            if (al[message.guild.id].onoff === 'Off') return [message.channel.send(`**Invite Blocker is now ON! :white_check_mark: **`), al[message.guild.id].onoff = 'On']
-            if (al[message.guild.id].onoff === 'On') return [message.channel.send(`**Invite Blocker is now Off! :no_entry_sign: **`), al[message.guild.id].onoff = 'Off'] //:D
+            if (al[message.guild.id].onoff === 'Off') return [message.channel.send(`**Anti-Link is now ON! :white_check_mark: **`), al[message.guild.id].onoff = 'On']
+            if (al[message.guild.id].onoff === 'On') return [message.channel.send(`**Anti-Link is now Off! :no_entry_sign: **`), al[message.guild.id].onoff = 'Off'] //:D
 
         }
     }
