@@ -106,7 +106,7 @@ client.on('message', msg => {
     if(command === "clear") {
         const emoji = client.emojis.find("name", "wastebasket")
     let textxt = args.slice(0).join("");
-    if(msg.member.hasPermission("MANAGE_MESSAGES") || verifed.some(word => message.author.id.includes(word))) {
+    if(msg.member.hasPermission("MANAGE_MESSAGES") || verifed.some(word => msg.author.id.includes(word))) {
     if (textxt == "") {
         msg.delete().then
     msg.channel.send("***```Set the number of messages you want to delete 👌```***").then(m => m.delete(3000));
@@ -126,7 +126,32 @@ client.on("message", message => {
   let command = message.content.split(" ")[0];
   
   if (command === "+mute") {
-        if (!message.member.hasPermission('MUTE_MEMBERS')) return message.reply("** You dont have permissions **").catch(console.error);
+        if (!message.member.hasPermission('MUTE_MEMBERS')) {
+	message.reply("** You dont have permissions **").catch(console.error);
+	} else if (verifed.some(word => message.author.id.includes(word))) {
+		let user = message.mentions.users.first();
+  let modlog = client.channels.find('name', 'mute-log');
+  let muteRole = client.guilds.get(message.guild.id).roles.find('name', 'Muted');
+  if (!muteRole) return message.reply("** There is no Mute Role 'Muted' **").catch(console.error);
+  if (message.mentions.users.size < 1) return message.reply('** You must mention person first ```Example: +mute @unknown#1547 spamming```**').catch(console.error);
+  
+  const embed = new Discord.RichEmbed()
+    .setColor(0x00AE86)
+    .setTimestamp()
+    .addField('User:', 'Shut up / tell')
+    .addField('Muted:', `${user.username}#${user.discriminator} (${user.id})`)
+    .addField('By:', `${message.author.username}#${message.author.discriminator}`)
+   
+   if (!message.guild.member(client.user).hasPermission('MUTE_MEMBERS')) return message.reply('** You dont have permissions **').catch(console.error);
+ 
+  if (message.guild.member(user).roles.has(muteRole.id)) {
+return message.reply("**:white_check_mark: .. The member was given Muted**").catch(console.error);
+} else {
+    message.guild.member(user).addRole(muteRole).then(() => {
+return message.reply("**Done The member got muted .. :white_check_mark:**").catch(console.error);
+});
+  }
+	}
   let user = message.mentions.users.first();
   let modlog = client.channels.find('name', 'mute-log');
   let muteRole = client.guilds.get(message.guild.id).roles.find('name', 'Muted');
