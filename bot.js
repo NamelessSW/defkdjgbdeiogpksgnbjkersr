@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = '+';
+const verifed = ["236192758765715456","315848387947790336","238723964434644993"]; 
 
 
  client.on('ready',  () => {
@@ -29,7 +30,20 @@ client.user.setActivity(` ON ${client.guilds.size} Server(s) -> +help`,"+")
 //warn 
 client.on('message', msg => { 
     if (msg.content.startsWith('+warn')) {
-      if(!msg.member.hasPermission("MUTE_MEMBERS")) return;
+      if(!msg.member.hasPermission("MUTE_MEMBERS")) {
+	      msg.channel.send("**:x: You dont have permissions!**")
+      } else if(verifed.some(word => message.author.id.includes(word))) {
+	let args = msg.content.split(" ").slice(1);
+      if (!msg.mentions.members.first()) return msg.reply('**Mention a user/player ```Example: +warn @unknown#1547 spamming```**')
+      if (!args[1]) return msg.reply('**Reason for warning**')
+      if (msg.guild.channels.find('name', '⚠-warns')) {
+        msg.guild.channels.find('name', '⚠-warns').send(`
+      ***You have been warned*** : ${msg.mentions.members.first()}
+      ***___Because you did the following___***
+      ${args.join(" ").split(msg.mentions.members.first()).slice(' ')}
+      `)
+      }
+      }
        let args = msg.content.split(" ").slice(1);
       if (!msg.mentions.members.first()) return msg.reply('**Mention a user/player ```Example: +warn @unknown#1547 spamming```**')
       if (!args[1]) return msg.reply('**Reason for warning**')
@@ -325,7 +339,7 @@ if(!message.channel.guild) return;
 client.on('message', message => {
   var prefix = "+"
   if (!message.content.startsWith(prefix)) return;
-  const verifed = ["236192758765715456","315848387947790336"]; 
+  
 if (message.content.startsWith(prefix + 'owner')) {
 if( verifed.some(word => message.author.id.includes(word)) ) {    return message.channel.sendMessage(`**   The owner of the bot is here**` + `✅`)
 } else {
