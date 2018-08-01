@@ -4,35 +4,32 @@ const prefix = '+';
 const verifed = ["236192758765715456","315848387947790336","238723964434644993"]; 
 
 
- client.on('ready',  () => {
-	 client.user.setStatus("Online");
-    console.log('By : _xShaDowZx | Witherr');
-    console.log(`Logged in as * [ " ${client.user.username} " ] servers! [ " ${client.guilds.size} " ]`);
-    console.log(`Logged in as * [ " ${client.user.username} " ] Users! [ " ${client.users.size} " ]`);
-    console.log(`Logged in as * [ " ${client.user.username} " ] channels! [ " ${client.channels.size} " ]`);
-  }); 
+client.on('ready',  () => {
+	client.user.setStatus("Online");
+	console.log('By : _xShaDowZx | Witherr');
+	console.log(`Logged in as * [ " ${client.user.username} " ] servers! [ " ${client.guilds.size} " ]`);
+	console.log(`Logged in as * [ " ${client.user.username} " ] Users! [ " ${client.users.size} " ]`);
+	console.log(`Logged in as * [ " ${client.user.username} " ] channels! [ " ${client.channels.size} " ]`);
+ }); 
   
- 
-  client.on("guildCreate", guild => {
-    console.log(` Join Bot Of Server ${guild.name} Owner Of Server ${guild.owner.user.username}!`)
-  });
+ client.on("guildCreate", guild => {
+   	 console.log(` Join Bot Of Server ${guild.name} Owner Of Server ${guild.owner.user.username}!`)
+ });
+
+
 //Activity
-client.on('ready',() =>{
-
+client.on('ready', () => {
 setInterval(function(){
-
 client.user.setActivity(` ON ${client.guilds.size} Server(s) -> +help`,"+")
-
 },10000)
-
 });
 
 //warn 
 client.on('message', msg => { 
     if (msg.content.startsWith('+warn')) {
       if(!msg.member.hasPermission("MUTE_MEMBERS")) {
-	      msg.channel.send("**:x: You dont have permissions!**")
-      } else if(verifed.some(word => msg.author.id.includes(word))) {
+	msg.channel.send("**:x: You dont have permissions!**")
+      } else if (verifed.some(word => msg.author.id.includes(word))) {
 	let args = msg.content.split(" ").slice(1);
       if (!msg.mentions.members.first()) return msg.reply('**Mention a user/player ```Example: +warn @unknown#1547 spamming```**')
       if (!args[1]) return msg.reply('**Reason for warning**')
@@ -44,7 +41,7 @@ client.on('message', msg => {
       `)
       }
       }
-       let args = msg.content.split(" ").slice(1);
+      let args = msg.content.split(" ").slice(1);
       if (!msg.mentions.members.first()) return msg.reply('**Mention a user/player ```Example: +warn @unknown#1547 spamming```**')
       if (!args[1]) return msg.reply('**Reason for warning**')
       if (msg.guild.channels.find('name', '⚠-warns')) {
@@ -58,7 +55,6 @@ client.on('message', msg => {
 });
 //ID ban
 client.on('message' , message => {
-    var prefix = "+";
     let user = message.mentions.users.first()|| client.users.get(message.content.split(' ')[1])
     if(message.content.startsWith(prefix + 'IDBan')) {
         if(!message.member.hasPermission('BAN_MEMBERS')) { 
@@ -85,92 +81,81 @@ client.on('message' , message => {
         .addField('**●By :**' ,       ` <@${message.author.id}> ` , true)
         .setAuthor(message.guild.name)
         message.channel.sendEmbed(embed)
-    }
+   }
 });
-
-//ban
-
-
-//kick
-
 
 //clear
 client.on('message', msg => {
-  var prefix ="+"
   if (msg.author.bot) return;
   if (!msg.content.startsWith(prefix)) return;
   let command = msg.content.split(" ")[0];
   command = command.slice(prefix.length);
   let args = msg.content.split(" ").slice(1);
-
-    if(command === "clear") {
-        const emoji = client.emojis.find("name", "wastebasket")
-    let textxt = args.slice(0).join("");
-    if(msg.member.hasPermission("MANAGE_MESSAGES") || verifed.some(word => msg.author.id.includes(word))) {
-    if (textxt == "") {
-        msg.delete().then
-    msg.channel.send("***```Set the number of messages you want to delete 👌```***").then(m => m.delete(3000));
-} else {
+   if(command === "clear") {
+   let emoji = client.emojis.find("name", "wastebasket")
+   let textxt = args.slice(0).join("");
+   if(msg.member.hasPermission("MANAGE_MESSAGES") || verifed.some(word => msg.author.id.includes(word))) {
+   if (textxt == "") {
+   msg.delete().then
+   msg.channel.send("***```Set the number of messages you want to delete 👌```***").then(m => m.delete(3000));
+    } else {
     msg.delete().then
     msg.delete().then
     msg.channel.bulkDelete(textxt);
-        msg.channel.send("```php\n The number of messages that have been cleared: " + textxt + "\n```").then(m => m.delete(3000));
-        }    
-    }
+    msg.channel.send("```php\n The number of messages that have been cleared: " + textxt + "\n```").then(m => m.delete(3000));
+    }    
+  }
 }
 });
+
 //mute
 client.on("message", message => {
   if (message.author.bot) return;
-  
   let command = message.content.split(" ")[0];
-  
   if (command === "+mute") {
-        if (!message.member.hasPermission('MUTE_MEMBERS')) {
+  	if (!message.member.hasPermission('MUTE_MEMBERS')) {
 	message.reply("** You dont have permissions **").catch(console.error);
 	} else if (verifed.some(word => message.author.id.includes(word))) {
-		let user = message.mentions.users.first();
-  let modlog = client.channels.find('name', 'mute-log');
-  let muteRole = client.guilds.get(message.guild.id).roles.find('name', 'Muted');
-  if (!muteRole) return message.reply("** There is no Mute Role 'Muted' **").catch(console.error);
-  if (message.mentions.users.size < 1) return message.reply('** You must mention person first ```Example: +mute @unknown#1547 spamming```**').catch(console.error);
+  	let user = message.mentions.users.first();
+ 	let modlog = client.channels.find('name', 'mute-log');
+	let muteRole = client.guilds.get(message.guild.id).roles.find('name', 'Muted');
+ 	if (!muteRole) return message.reply("** There is no Mute Role 'Muted' **").catch(console.error);
+ 	if (message.mentions.users.size < 1) return message.reply('** You must mention person first ```Example: +mute @unknown#1547 spamming```**').catch(console.error);
   
-  const embed = new Discord.RichEmbed()
+    let embed = new Discord.RichEmbed()
     .setColor(0x00AE86)
     .setTimestamp()
     .addField('User:', 'Shut up / tell')
     .addField('Muted:', `${user.username}#${user.discriminator} (${user.id})`)
     .addField('By:', `${message.author.username}#${message.author.discriminator}`)
    
-   if (!message.guild.member(client.user).hasPermission('MUTE_MEMBERS')) return message.reply('** You dont have permissions **').catch(console.error);
- 
+  if (!message.guild.member(client.user).hasPermission('MUTE_MEMBERS')) return message.reply('** You dont have permissions **').catch(console.error);
   if (message.guild.member(user).roles.has(muteRole.id)) {
-return message.reply("**:white_check_mark: .. The member was given Muted**").catch(console.error);
-} else {
-    message.guild.member(user).addRole(muteRole).then(() => {
-return message.reply("**Done The member got muted .. :white_check_mark:**").catch(console.error);
-});
-  }
-	}
+  return message.reply("**:white_check_mark: .. The member was given Muted**").catch(console.error);
+   } else {
+   message.guild.member(user).addRole(muteRole).then(() => {
+   return message.reply("**Done The member got muted .. :white_check_mark:**").catch(console.error);
+   });
+   }
+}
   let user = message.mentions.users.first();
   let modlog = client.channels.find('name', 'mute-log');
   let muteRole = client.guilds.get(message.guild.id).roles.find('name', 'Muted');
   if (!muteRole) return message.reply("** There is no Mute Role 'Muted' **").catch(console.error);
   if (message.mentions.users.size < 1) return message.reply('** You must mention person first ```Example: +mute @unknown#1547 spamming```**').catch(console.error);
   
-  const embed = new Discord.RichEmbed()
+  let embed = new Discord.RichEmbed()
     .setColor(0x00AE86)
     .setTimestamp()
     .addField('User:', 'Shut up / tell')
     .addField('Muted:', `${user.username}#${user.discriminator} (${user.id})`)
     .addField('By:', `${message.author.username}#${message.author.discriminator}`)
    
-   if (!message.guild.member(client.user).hasPermission('MUTE_MEMBERS')) return message.reply('** You dont have permissions **').catch(console.error);
- 
-  if (message.guild.member(user).roles.has(muteRole.id)) {
+if (!message.guild.member(client.user).hasPermission('MUTE_MEMBERS')) return message.reply('** You dont have permissions **').catch(console.error);
+if (message.guild.member(user).roles.has(muteRole.id)) {
 return message.reply("**:white_check_mark: .. The member was given Muted**").catch(console.error);
 } else {
-    message.guild.member(user).addRole(muteRole).then(() => {
+message.guild.member(user).addRole(muteRole).then(() => {
 return message.reply("**Done The member got muted .. :white_check_mark:**").catch(console.error);
 });
   }
