@@ -2256,11 +2256,7 @@ antispam(client, {
   time: 100000, 
 });
 
-//auto-reconnect
-client.on('disconnect', (err, code) => {
-    console.log(`Bot disconnected with code ${code}, for reason ${err}`);
-    client.login(process.env.BOT_TOKEN);
-});
+
 
 client.login(process.env.BOT_TOKEN);
 
