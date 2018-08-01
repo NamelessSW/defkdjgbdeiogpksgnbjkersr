@@ -2241,6 +2241,20 @@ client.on('message', message => {
         if (err) console.error(err)
     });
 });
+//Anti Spam
+var antispam = require("anti-spam");//npm i anti-spam
+ 
+antispam(client, {
+  warnBuffer: 3, 
+  maxBuffer: 5, 
+  interval: 1000,
+  warningMessage: "**:angry: Spamming is not allowed here! :anger:**",
+  roleMessage: "**got Muted for spamming! :white_check_mark:**", 
+  roleName: "Muted", 
+  maxDuplicatesWarning: 7, 
+  maxDuplicatesBan: 10, 
+  time: 100000, 
+});
 
 
 client.login(process.env.BOT_TOKEN);
