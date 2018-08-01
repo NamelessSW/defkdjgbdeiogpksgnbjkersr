@@ -1248,7 +1248,7 @@ Nameless Head Developer(s)👑:
 -【✭ Zentreax#8277  ✭】
 ════════════
 Nameless Support Manager:
--ExtraW0lf ¯\_(ツ)_/¯#0175
+-:arrow_right: Apply Now!
 ════════════
 Nameless Shop Manager:
 -༺ BarisE#5634 ༻
@@ -1259,11 +1259,13 @@ Nameless Partnership Manager(s):
 ════════════
 Nameless Supporter(s):
 :one:-SammyB#0788 
+-:arrow_right: Apply Now!
 ════════════
 Nameless Discord Moderator(s):
 :wrench:-Ashton#0546 
 :wrench:-XITZJUSTMARWINZX_#5240 
 :wrench:-Chuckles#7837 
+-:arrow_right: Apply Now!
 ════════════
 :red_circle: Nameless Support Discord :tools: ➾ https://discord.gg/atk3A2C
 :pushpin:  Don't forget to vote for Nameless Bot :heartbeat: ➾ https://discordbots.org/bot/465993722342014986/vote
