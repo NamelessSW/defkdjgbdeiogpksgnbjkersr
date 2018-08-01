@@ -2241,7 +2241,7 @@ client.on('message', message => {
         if (err) console.error(err)
     });
 });
-//Anti Spam
+/*Anti Spam
 var antispam = require("anti-spam");//npm i anti-spam
  
 antispam(client, {
@@ -2255,7 +2255,7 @@ antispam(client, {
   maxDuplicatesBan: 10, 
   time: 100000, 
 });
-
+*/
 
 
 client.login(process.env.BOT_TOKEN);
