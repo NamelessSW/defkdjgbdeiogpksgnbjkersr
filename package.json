@@ -7,6 +7,7 @@
       "start": "node bot.js"
     },
     "dependencies": {
+      "anti-spam": "^0.2.7",
       "ascii-data-table": "^2.1.1",
       "canvas": "^1.6.10",
       "child_process": "^1.0.2",
@@ -27,7 +28,7 @@
       "sqlite": "^2.9.1",
       "sqlite3": "^4.0.0",
       "math-expression-evaluator": "^1.2.17",
-       "google-translate-api": "^2.3.0",
+      "google-translate-api": "^2.3.0",
       "figlet": "^1.2.0",
       "goo.gl": "^0.1.4",
       "common-tags": "^1.7.2",
