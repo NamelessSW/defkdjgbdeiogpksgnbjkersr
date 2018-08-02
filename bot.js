@@ -23,7 +23,7 @@ setInterval(function(){
 client.user.setActivity(` ON ${client.guilds.size} Server(s) -> +help`,"+")
 },10000)
 });
-
+//.
 //warn 
 client.on('message', msg => { 
     if (msg.content.startsWith('+warn')) {
