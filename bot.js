@@ -1233,7 +1233,7 @@ Nameless Head Developer(s)👑:
 -【✭ Zentreax#8277  ✭】
 ════════════
 Nameless Support Manager:
--:arrow_right: Apply Now!
+-༺ @EAOE#5650 ༻
 ════════════
 Nameless Shop Manager:
 -༺ BarisE#5634 ༻
@@ -1244,6 +1244,7 @@ Nameless Partnership Manager(s):
 ════════════
 Nameless Supporter(s):
 :one:-SammyB#0788 
+:two:-@Sausy_11#7897 
 -:arrow_right: Apply Now!
 ════════════
 Nameless Discord Moderator(s):
