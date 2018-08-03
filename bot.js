@@ -686,8 +686,8 @@ client.on("message", message => {
 ╔[❖════════════❖]╗
      Game Commands :video_game: 
 ╚[❖════════════❖]╝
-❖ +roll :game_die: ➾ Roll over/under 50. Rolls random between 0-100.
-❖ +rps :newspaper: ➾ Rock, Paper, Scissors. (temporarily disabled)
+❖ +roll :game_die: ➾ Roll over/under 50. Rolls random between 0-100. (Coming soon)
+❖ +rps :newspaper: ➾ Rock, Paper, Scissors. (Coming soon)
 ❖ +coin :money_with_wings: ➾ Flip a Coin. (Coming soon)
 ════════════
 :red_circle: Nameless Support Discord :tools: ➾ https://discord.gg/atk3A2C
