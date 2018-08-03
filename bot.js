@@ -1252,8 +1252,6 @@ Nameless Supporter(s):
 :arrow_right:-Apply Now!
 ════════════
 Nameless Discord Moderator(s):
-:wrench:-Ashton#0546 
-:wrench:-XITZJUSTMARWINZX_#5240 
 :wrench:-Chuckles#7837 
 :arrow_right:-Apply Now!
 ════════════
