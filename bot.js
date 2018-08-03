@@ -334,14 +334,18 @@ client.on('message', msg => {
 client.on('guildCreate', guild => {
     client.channels.get("467682139975057408").send(`**Nameless Bot joined a new server ✅
   Server name: __${guild.name}__
+  Server id: __${guild.id}__ 
   Server owner: __${guild.owner}__
+  Server Count: __${guild.memberCount}__
   Servers Counter : __${client.guilds.size}__**`)
   });
 //your bot has been removed form thhe server
 client.on('guildDelete', guild => {
     client.channels.get("472166946981281792").send(`**Nameless Bot left a server ❎
   Server name: __${guild.name}__
+  Server id: __${guild.id}__ 
   Server owner: __${guild.owner}__
+  Server Count: __${guild.memberCount}__
   Servers Counter : __${client.guilds.size}__**`)
   });
 
