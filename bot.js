@@ -337,7 +337,7 @@ const embed = new Discord.RichEmbed()
    .setAuthor(`Nameless Bot joined a new server ✅`)
    .setDescription(`**
 Server name: __${guild.name}__
-erver id: __${guild.id}__
+Server id: __${guild.id}__
 Server owner: __${guild.owner}__
 Member Count: __${guild.memberCount}__
 Servers Counter : __${client.guilds.size}__**`)
@@ -354,7 +354,7 @@ const embed = new Discord.RichEmbed()
    .setAuthor(`Nameless Bot left a server ❎`)
    .setDescription(`**
 Server name: __${guild.name}__
-erver id: __${guild.id}__
+Server id: __${guild.id}__
 Server owner: __${guild.owner}__
 Member Count: __${guild.memberCount}__
 Servers Counter : __${client.guilds.size}__**`)
