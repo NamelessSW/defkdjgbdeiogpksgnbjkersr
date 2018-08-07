@@ -332,23 +332,40 @@ client.on('message', msg => {
     });
 //your bot has been added to new server
 client.on('guildCreate', guild => {
-    client.channels.get("467682139975057408").send(`**Nameless Bot joined a new server ✅
-  Server name: __${guild.name}__
-  Server id: __${guild.id}__ 
-  Server owner: __${guild.owner}__
-  Member Count: __${guild.memberCount}__
-  Servers Counter : __${client.guilds.size}__**`)
-  });
+  client.channels.get("467682139975057408")
+const embed = new Discord.RichEmbed()
+   .setAuthor(`Nameless Bot joined a new server ✅`)
+   .setDescription(`**
+Server name: __${guild.name}__
+erver id: __${guild.id}__
+Server owner: __${guild.owner}__
+Member Count: __${guild.memberCount}__
+Servers Counter : __${client.guilds.size}__**`)
+         .setColor("#f3ae10")
+         .setFooter('-༺ Nameless Bot ༻' , client.user.avatarURL)
+           client.channels.get("467682139975057408").send({embed});
+}
+
+);
 //your bot has been removed form thhe server
 client.on('guildDelete', guild => {
-    client.channels.get("472166946981281792").send(`**Nameless Bot left a server ❎
-  Server name: __${guild.name}__
-  Server id: __${guild.id}__ 
-  Server owner: __${guild.owner}__
-  Member Count: __${guild.memberCount}__
-  Servers Counter : __${client.guilds.size}__**`)
-  });
+  client.channels.get("472166946981281792")
+const embed = new Discord.RichEmbed()
+   .setAuthor(`Nameless Bot left a server ❎`)
+   .setDescription(`**
+Server name: __${guild.name}__
+erver id: __${guild.id}__
+Server owner: __${guild.owner}__
+Member Count: __${guild.memberCount}__
+Servers Counter : __${client.guilds.size}__**`)
+         .setColor("#f3ae10")
+         .setFooter('-༺ Nameless Bot ༻' , client.user.avatarURL)
+           client.channels.get("472166946981281792").send({embed});
+}
 
+);
+
+//bot servers
  client.on('message' , message => {
    var prefix ="+"
      if (message.content === prefix + "botservers?") {
