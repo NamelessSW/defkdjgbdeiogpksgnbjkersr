@@ -861,6 +861,7 @@ client.on('message', message => {
 client.on('message', message => {
   var prefix = "+"
     if (message.content.startsWith(prefix + "say")) {
+	    message.delete();
       if (!message.member.hasPermission('ADMINISTRATOR')) return message.reply("**This is for management only (Who have __ADMINISTRATOR__ ON can use this command)**");
         let args = message.content.split(" ").slice(1)
         let text = args.join(' ').replace('$userid', message.author.id).replace('server-name', message.guild.name)
@@ -876,6 +877,7 @@ client.on('message', message => {
 **With** **__${client.users.size}__ Users 👥**
 **and** **__${client.channels.size}__ Channels 📚** `)
              message.channel.sendEmbed(embed);
+	  
          }
 });
 //MC skins
