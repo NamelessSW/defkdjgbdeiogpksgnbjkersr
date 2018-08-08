@@ -120,6 +120,19 @@ client.on("message", message => {
  	let modlog = client.channels.find('name', 'mute-log');
 	let muteRole = client.guilds.get(message.guild.id).roles.find('name', 'Muted');
  	if (!muteRole) return message.reply("** There is no Mute Role 'Muted' **").catch(console.error);
+		if(!muterole){
+    try{
+      muterole = await message.guild.createRole({
+        name: "muted",
+        color: "#000000",
+        permissions:[]
+      })
+      message.guild.channels.forEach(async (channel, id) => {
+        await channel.overwritePermissions(muterole, {
+          SEND_MESSAGES: false,
+          ADD_REACTIONS: false
+        });
+      });
  	if (message.mentions.users.size < 1) return message.reply('** You must mention person first ```Example: +mute @unknown#1547 spamming```**').catch(console.error);
   
     let embed = new Discord.RichEmbed()
