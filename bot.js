@@ -1268,6 +1268,8 @@ Nameless Partnership Manager(s):
 Nameless Supporter(s):
 :one:-SammyB#0788 
 :two:-Sausy_11#7897 
+:three:-𝕞𝕘𝕞𝕒𝕕𝕟𝕖𝕤𝕤𝕥𝕧#6122 
+:four:-GamingWay#4842 
 :arrow_right:-Apply Now!
 ════════════
 Nameless Discord Moderator(s):
