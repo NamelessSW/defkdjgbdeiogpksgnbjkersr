@@ -1255,25 +1255,22 @@ Nameless Head Developer(s)👑:
 -【✭ Witherr#1360 ✭】
 -【✭ Zentreax#8277  ✭】
 ════════════
-Nameless Support Manager:
+Nameless Support Manager(Staff Manager):
 -༺ @EAOE#5650 ༻
 ════════════
 Nameless Shop Manager:
 -༺ BarisE#5634 ༻
 ════════════
-Nameless Partnership Manager(s):
--༺ BuggyPlayz#0931 ༻
--༺ DuChaonan#5939 ༻
+Nameless Partnership Manager:
+:arrow_right:-Apply Now!
 ════════════
 Nameless Supporter(s):
-:one:-SammyB#0788 
-:two:-Sausy_11#7897 
-:three:-𝕞𝕘𝕞𝕒𝕕𝕟𝕖𝕤𝕤𝕥𝕧#6122 
-:four:-GamingWay#4842 
+:one:-Sausy_11#7897 
+:two:-𝕞𝕘𝕞𝕒𝕕𝕟𝕖𝕤𝕤𝕥𝕧#6122 
+:three:-GamingWay#4842
 :arrow_right:-Apply Now!
 ════════════
 Nameless Discord Moderator(s):
-:wrench:-Chuckles#7837 
 :arrow_right:-Apply Now!
 ════════════
 :red_circle: Nameless Support Discord :tools: ➾ https://discord.gg/atk3A2C
